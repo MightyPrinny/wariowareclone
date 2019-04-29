@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cannon.wav-185fc8d309511aad64e7e8301c7e28de.sample"
+
+[deps]
+
+source_file="res://SFX/cannon.wav"
+dest_files=[ "res://.import/cannon.wav-185fc8d309511aad64e7e8301c7e28de.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,133 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://SpriteTextScript/SpriteText.gd" type="Script" id=1]
+[ext_resource path="res://GFX/wariowarefont.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends TextureButton
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	grab_focus()
+	AudioManager.play_music(\"ww-main-menu.ogg\",1)
+	pass # Replace with function body.
+
+func _pressed():
+	if !Global.transitioning:
+		enabled_focus_mode = false
+		Global.change_scene(\"res://Scenes/MGBatchSelectMenu.tscn\")
+		AudioManager.play_sfx_name(\"pause.wav\")
+		
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[node name="Main" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 333.0
+margin_bottom = 301.0
+color = Color( 0.627451, 0.627451, 0.627451, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 140.226
+margin_top = 191.51
+margin_right = 181.226
+margin_bottom = 235.51
+focus_mode = 2
+mouse_filter = 2
+
+[node name="Button" type="TextureButton" parent="VBoxContainer"]
+margin_right = 41.0
+focus_neighbour_bottom = NodePath("../Button2")
+focus_next = NodePath("../Button2")
+mouse_filter = 2
+script = SubResource( 1 )
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+visible = false
+margin_top = 24.0
+margin_right = 41.0
+margin_bottom = 44.0
+focus_neighbour_top = NodePath("../Button")
+focus_previous = NodePath("../Button")
+mouse_filter = 2
+text = "B2"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="2x" type="Node2D" parent="."]
+scale = Vector2( 2, 2 )
+
+[node name="Hint" type="ReferenceRect" parent="2x"]
+margin_left = -287.754
+margin_top = 26.5278
+margin_right = 448.246
+margin_bottom = 74.7838
+mouse_filter = 2
+border_color = Color( 0.568627, 0, 0, 1 )
+script = ExtResource( 1 )
+ignore_rect = true
+char_spacing = 1
+centered = true
+text = "¬WGame  Bootleg"
+character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
+custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+font_texture = ExtResource( 2 )
+char_width = 16
+char_height = 16
+anim_speed = 150.0
+texture_rows = 2
+
+[node name="Hint4" type="ReferenceRect" parent="2x"]
+margin_left = -285.112
+margin_top = 97.7097
+margin_right = 450.888
+margin_bottom = 145.966
+mouse_filter = 2
+border_color = Color( 0.568627, 0, 0, 1 )
+script = ExtResource( 1 )
+ignore_rect = true
+char_spacing = 1
+centered = true
+text = "¬Spress start"
+character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
+custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+font_texture = ExtResource( 2 )
+char_width = 16
+char_height = 16
+anim_speed = 0.7
+anim_interval = 0.065
+texture_rows = 2
+
+[node name="Hint2" type="ReferenceRect" parent="2x"]
+margin_left = -285.191
+margin_top = 30.6705
+margin_right = 450.809
+margin_bottom = 78.9265
+mouse_filter = 2
+border_color = Color( 0.568627, 0, 0, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+ignore_rect = true
+char_spacing = 1
+centered = true
+text = "
+¬SWare"
+character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
+custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+font_texture = ExtResource( 2 )
+char_width = 16
+char_height = 16
+anim_speed = 0.7
+anim_interval = 0.065
+texture_rows = 2
+

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/rising.wav-14a471cb6522dc03bb471cdf8862d962.sample"
+
+[deps]
+
+source_file="res://SFX/rising.wav"
+dest_files=[ "res://.import/rising.wav-14a471cb6522dc03bb471cdf8862d962.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

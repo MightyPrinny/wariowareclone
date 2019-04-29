@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/shell_kick.wav-221c458fe49f49a74ffe413d48fd23ec.sample"
+
+[deps]
+
+source_file="res://SFX/shell_kick.wav"
+dest_files=[ "res://.import/shell_kick.wav-221c458fe49f49a74ffe413d48fd23ec.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

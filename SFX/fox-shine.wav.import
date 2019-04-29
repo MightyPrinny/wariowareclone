@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fox-shine.wav-9892eec028df5a25cba51e2e2a70b354.sample"
+
+[deps]
+
+source_file="res://SFX/fox-shine.wav"
+dest_files=[ "res://.import/fox-shine.wav-9892eec028df5a25cba51e2e2a70b354.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

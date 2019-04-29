@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ssb-strong-hit.wav-c0106894f8c6a3d1a079035e2c2101c1.sample"
+
+[deps]
+
+source_file="res://SFX/ssb-strong-hit.wav"
+dest_files=[ "res://.import/ssb-strong-hit.wav-c0106894f8c6a3d1a079035e2c2101c1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

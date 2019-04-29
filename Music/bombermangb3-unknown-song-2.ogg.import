@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/bombermangb3-unknown-song-2.ogg-48b6925b6789273cab5134f333628061.oggstr"
+
+[deps]
+
+source_file="res://Music/bombermangb3-unknown-song-2.ogg"
+dest_files=[ "res://.import/bombermangb3-unknown-song-2.ogg-48b6925b6789273cab5134f333628061.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

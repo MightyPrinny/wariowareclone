@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wiggle.wav-65884c7b05492f384c3929e3f1169e29.sample"
+
+[deps]
+
+source_file="res://SFX/wiggle.wav"
+dest_files=[ "res://.import/wiggle.wav-65884c7b05492f384c3929e3f1169e29.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

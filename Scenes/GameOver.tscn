@@ -1,0 +1,166 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/GameOver.gd" type="Script" id=1]
+[ext_resource path="res://SpriteTextScript/SpriteText.gd" type="Script" id=2]
+[ext_resource path="res://GFX/wariowarefont.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=10]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:char_spacing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ 150, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.4, 1.9 ),
+"transitions": PoolRealArray( 1, 2, 2, 1 ),
+"update": 0,
+"values": [ 143.744, 143.744, 143.744, 320.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="BG" type="ColorRect" parent="."]
+margin_left = -1.89999
+margin_right = 344.1
+margin_bottom = 316.0
+color = Color( 0, 0, 0, 0.592157 )
+
+[node name="2x" type="Node2D" parent="."]
+scale = Vector2( 2, 2 )
+
+[node name="HighScores" type="ReferenceRect" parent="2x"]
+margin_left = 28.0
+margin_top = 1.0
+margin_right = 472.0
+margin_bottom = 86.0
+mouse_filter = 2
+border_color = Color( 0.568627, 0, 0, 0 )
+script = ExtResource( 2 )
+ignore_rect = true
+char_spacing = 1
+text = "¬SHigh Scores¬N
+
+1st
+
+2nd
+
+3rd"
+character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
+custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+font_texture = ExtResource( 3 )
+char_width = 16
+char_height = 16
+anim_speed = 0.45
+texture_rows = 2
+
+[node name="1st" type="ReferenceRect" parent="2x/HighScores"]
+margin_left = 49.0
+margin_top = 32.0
+margin_right = 130.0
+margin_bottom = 53.0
+mouse_filter = 2
+border_color = Color( 0.568627, 0, 0, 0 )
+script = ExtResource( 2 )
+ignore_rect = true
+char_spacing = 1
+centered = true
+text = "0"
+character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
+custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+font_texture = ExtResource( 3 )
+char_width = 16
+char_height = 16
+anim_speed = 0.45
+texture_rows = 2
+
+[node name="2nd" type="ReferenceRect" parent="2x/HighScores"]
+margin_left = 49.0
+margin_top = 64.0
+margin_right = 130.0
+margin_bottom = 85.0
+mouse_filter = 2
+border_color = Color( 0.568627, 0, 0, 0 )
+script = ExtResource( 2 )
+ignore_rect = true
+char_spacing = 1
+centered = true
+text = "0"
+character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
+custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+font_texture = ExtResource( 3 )
+char_width = 16
+char_height = 16
+anim_speed = 0.45
+texture_rows = 2
+
+[node name="3rd" type="ReferenceRect" parent="2x/HighScores"]
+margin_left = 49.0
+margin_top = 96.0
+margin_right = 130.0
+margin_bottom = 117.0
+mouse_filter = 2
+border_color = Color( 0.568627, 0, 0, 0 )
+script = ExtResource( 2 )
+ignore_rect = true
+char_spacing = 1
+centered = true
+text = "0"
+character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
+custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+font_texture = ExtResource( 3 )
+char_width = 16
+char_height = 16
+anim_speed = 0.45
+texture_rows = 2
+
+[node name="RetryExit" type="ReferenceRect" parent="2x"]
+margin_left = 14.0
+margin_top = 125.0
+margin_right = 458.0
+margin_bottom = 210.0
+mouse_filter = 2
+border_color = Color( 0.568627, 0, 0, 0 )
+script = ExtResource( 2 )
+ignore_rect = true
+char_spacing = 1
+text = "|Retry @Exit"
+character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
+custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+font_texture = ExtResource( 3 )
+char_width = 16
+char_height = 16
+anim_speed = 600.0
+texture_rows = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="2x/RetryExit" groups=[
+"scaled_anim",
+]]
+anims/In = SubResource( 10 )
+

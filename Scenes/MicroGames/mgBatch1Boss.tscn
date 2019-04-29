@@ -1,0 +1,856 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://Scenes/MicroGames/mgBatch1Boss.gd" type="Script" id=1]
+[ext_resource path="res://GFX/Batch1Boss/b1b-bg.png" type="Texture" id=2]
+[ext_resource path="res://Tilesets/mario-3.tres" type="TileSet" id=3]
+[ext_resource path="res://GFX/Batch1Boss/b1b-hud.png" type="Texture" id=4]
+[ext_resource path="res://GFX/Batch1Boss/b1b-BigToad.png" type="Texture" id=5]
+[ext_resource path="res://GFX/Batch1Boss/b1b-Gun.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/MicroGames/Boss1/Boss1ToadKid.gd" type="Script" id=7]
+[ext_resource path="res://GFX/Batch1Boss/b1b-SmolToad-8.png" type="Texture" id=8]
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Sprite
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+var ox = 0;
+var timer = 0;
+
+func _ready():
+	pass # Replace with function body.
+	
+func _process(delta):
+
+	
+	timer += delta;
+	if timer > 0.1:
+		ox += 3;
+		if ox > 3:
+			ox = 0
+		timer = 0
+		update()
+
+func _draw():
+	for i in range(32):
+		draw_rect(Rect2(Vector2(32+i*8+ox,-4),Vector2(1,1)),Color8(128,128,128,255),true)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 4 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "d"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Gun:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 24, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath(".:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 100, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "kids_died"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Gun:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9, 1.2, 1.5, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 5, 6, 5, 6, 5, 2 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "force_microgame_end"
+} ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "win"
+length = 4.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.2, 2, 2.7, 3.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 3, 6, 6, 3, 6 ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 24, -0.25, 0, 0.25, 0, 24, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath(".:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 100, -0.25, 0, 0.25, 0, 100, -0.25, 0, 0.07, -12.4189, 85.5717, -0.11, -0.401886, 0.16, 1.20563, 100, -0.00999999, -5.62628, 0.25, 0, 100, -0.25, 0, 0.25, 0, 100, -0.25, 0, 0.07, -12.4189, 85.5717, -0.11, -0.401886, 0.16, 1.20563, 100, -0.00999999, -5.62628, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.6, 0.9, 1.2, 2, 2.6, 2.9, 3.2 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Gun:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "force_microgame_end"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 80, 72 )
+
+[sub_resource type="Animation" id=21]
+resource_name = "e"
+length = 5.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Kids/ToadKid1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 192, -0.25, 0, 0.25, 0, 144, -0.25, 0, 0.25, 0, 168, -0.25, 0, 0.25, 0, 192, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.7, 3.4, 5 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Kids/ToadKid1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 152, -0.25, 0, 0.25, 0, 88, -0.25, 0, 0.25, 0, 120, -0.25, 0, 0.25, 0, 152, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.7, 3.4, 5 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Kids/ToadKid2:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 208, -0.25, 0, 0.25, 0, 304, -0.25, 0, 0.25, 0, 256, -0.25, 0, 0.25, 0, 208, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.7, 3.4, 5 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Kids/ToadKid2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 192, -0.25, 0, 0.25, 0, 88, -0.25, 0, 0.25, 0, 140, -0.25, 0, 0.25, 0, 192, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.7, 3.4, 5 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Kids/ToadKid3:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 280, -0.25, 0, 0.25, 0, 240, -0.25, 0, 0.25, 0, 208, -0.25, 0, 0.25, 0, 280, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.7, 3.4, 5 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Kids/ToadKid3:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 120, -0.25, 0, 0.25, 0, 192, -0.25, 0, 0.25, 0, 48, -0.25, 0, 0.25, 0, 120, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.7, 3.4, 5 )
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "h"
+
+[sub_resource type="Animation" id=23]
+resource_name = "m"
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 3.5, 6 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "d"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "falling"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 5 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "landed"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 7 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "pop"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "falling", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "d"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "falling"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 5 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "landed"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 7 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "pop"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "falling", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "d"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "falling"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 5 ]
+}
+
+[sub_resource type="Animation" id=19]
+resource_name = "landed"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 7 ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "pop"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "falling", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+
+[node name="Boss1" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="b1b-bg" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Easy" type="TileMap" parent="."]
+editor/display_folded = true
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 458752, 12, 0, 458753, 13, 0, 458754, 14, 0, 458757, 18, 0, 458760, 18, 0, 524288, 15, 0, 524289, 16, 0, 524290, 17, 0, 589824, 15, 0, 589825, 16, 0, 589826, 17, 0 )
+
+[node name="KinematicBody2D" type="StaticBody2D" parent="Easy"]
+editor/display_folded = true
+position = Vector2( 0, 112 )
+scale = Vector2( 3, 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Easy/KinematicBody2D"]
+position = Vector2( 8, 8 )
+shape = SubResource( 12 )
+
+[node name="KinematicBody2D2" type="StaticBody2D" parent="Easy"]
+editor/display_folded = true
+position = Vector2( 80, 112 )
+scale = Vector2( 2, 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Easy/KinematicBody2D2"]
+position = Vector2( 8, 8 )
+shape = SubResource( 12 )
+
+[node name="KinematicBody2D3" type="StaticBody2D" parent="Easy"]
+editor/display_folded = true
+position = Vector2( 128, 112 )
+scale = Vector2( 2, 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Easy/KinematicBody2D3"]
+position = Vector2( 8, 8 )
+shape = SubResource( 12 )
+
+[node name="Medium" type="TileMap" parent="."]
+editor/display_folded = true
+visible = false
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 47, 0, 0, 393221, 43, 0, 393223, 43, 0, 393225, 43, 0, 458752, 12, 0, 458753, 13, 0, 458754, 14, 0, 458757, 45, 0, 458759, 45, 0, 458761, 45, 0, 524288, 15, 0, 524289, 16, 0, 524290, 17, 0, 589824, 15, 0, 589825, 16, 0, 589826, 17, 0 )
+
+[node name="KinematicBody2D4" type="StaticBody2D" parent="Medium"]
+editor/display_folded = true
+position = Vector2( 0, 112 )
+scale = Vector2( 3, 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Medium/KinematicBody2D4"]
+position = Vector2( 8, 8 )
+shape = SubResource( 12 )
+
+[node name="KinematicBody2D5" type="StaticBody2D" parent="Medium"]
+editor/display_folded = true
+position = Vector2( 80, 112 )
+scale = Vector2( 1, 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Medium/KinematicBody2D5"]
+position = Vector2( 8, 8 )
+shape = SubResource( 12 )
+
+[node name="KinematicBody2D6" type="StaticBody2D" parent="Medium"]
+editor/display_folded = true
+position = Vector2( 112, 112 )
+scale = Vector2( 1, 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Medium/KinematicBody2D6"]
+position = Vector2( 8, 8 )
+shape = SubResource( 12 )
+
+[node name="KinematicBody2D7" type="StaticBody2D" parent="Medium"]
+editor/display_folded = true
+position = Vector2( 144, 112 )
+scale = Vector2( 1, 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Medium/KinematicBody2D7"]
+position = Vector2( 8, 8 )
+shape = SubResource( 12 )
+
+[node name="Hard" type="TileMap" parent="."]
+editor/display_folded = true
+visible = false
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 47, 0, 0, 393221, 43, 0, 393222, 43, 0, 458752, 12, 0, 458753, 13, 0, 458754, 14, 0, 458757, 45, 0, 458758, 45, 0, 524288, 15, 0, 524289, 16, 0, 524290, 17, 0, 589824, 15, 0, 589825, 16, 0, 589826, 17, 0 )
+
+[node name="KinematicBody2D8" type="StaticBody2D" parent="Hard"]
+editor/display_folded = true
+position = Vector2( 0, 112 )
+scale = Vector2( 3, 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hard/KinematicBody2D8"]
+position = Vector2( 8, 8 )
+shape = SubResource( 12 )
+
+[node name="KinematicBody2D9" type="StaticBody2D" parent="Hard"]
+editor/display_folded = true
+position = Vector2( 80, 112 )
+scale = Vector2( 2, 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hard/KinematicBody2D9"]
+position = Vector2( 8, 8 )
+shape = SubResource( 12 )
+
+[node name="b1b-hud" type="Sprite" parent="."]
+position = Vector2( 12, 8 )
+texture = ExtResource( 4 )
+centered = false
+hframes = 5
+
+[node name="Toad" type="Sprite" parent="."]
+position = Vector2( 24, 100 )
+texture = ExtResource( 5 )
+hframes = 9
+frame = 6
+
+[node name="Gun" type="Sprite" parent="Toad"]
+visible = false
+position = Vector2( 0, 2 )
+texture = ExtResource( 6 )
+offset = Vector2( 10, -4 )
+hframes = 3
+frame = 1
+script = SubResource( 1 )
+
+[node name="sp" type="Position2D" parent="Toad/Gun"]
+position = Vector2( 11, -2.5 )
+
+[node name="Bullet" type="Sprite" parent="Toad/Gun"]
+position = Vector2( -68, -6 )
+texture = ExtResource( 6 )
+offset = Vector2( 14, 3 )
+hframes = 3
+frame = 2
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HitBox" type="Area2D" parent="Toad/Gun/Bullet"]
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toad/Gun/Bullet/HitBox"]
+visible = false
+position = Vector2( 7, -2 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Toad" groups=[
+"mg_anim",
+]]
+autoplay = "d"
+anims/d = SubResource( 4 )
+anims/kids_died = SubResource( 5 )
+anims/win = SubResource( 24 )
+
+[node name="ScreenArea" type="Area2D" parent="."]
+editor/display_folded = true
+visible = false
+input_pickable = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenArea"]
+position = Vector2( 80, 72 )
+shape = SubResource( 3 )
+
+[node name="KidMover" type="AnimationPlayer" parent="."]
+anims/e = SubResource( 21 )
+anims/h = SubResource( 22 )
+anims/m = SubResource( 23 )
+
+[node name="Kids" type="Node" parent="."]
+
+[node name="ToadKid1" type="KinematicBody2D" parent="Kids" groups=[
+"kid",
+]]
+editor/display_folded = true
+position = Vector2( 153.698, 100.931 )
+scale = Vector2( 2, 2 )
+collision_layer = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Kids/ToadKid1"]
+texture = ExtResource( 8 )
+offset = Vector2( 6, -16 )
+hframes = 8
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kids/ToadKid1"]
+visible = false
+position = Vector2( -0.5, 0 )
+shape = SubResource( 6 )
+
+[node name="HitArea" type="Area2D" parent="Kids/ToadKid1"]
+visible = false
+position = Vector2( 6.5, -21.5 )
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kids/ToadKid1/HitArea"]
+position = Vector2( 0, -1.5 )
+shape = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Kids/ToadKid1" groups=[
+"mg_anim",
+]]
+autoplay = "d"
+anims/d = SubResource( 8 )
+anims/falling = SubResource( 9 )
+anims/landed = SubResource( 10 )
+anims/pop = SubResource( 11 )
+
+[node name="ToadKid2" type="KinematicBody2D" parent="Kids" groups=[
+"kid",
+]]
+editor/display_folded = true
+position = Vector2( 284.604, 109.013 )
+scale = Vector2( 2, 2 )
+collision_layer = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Kids/ToadKid2"]
+texture = ExtResource( 8 )
+offset = Vector2( 6, -16 )
+hframes = 8
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kids/ToadKid2"]
+visible = false
+position = Vector2( -0.5, 0 )
+shape = SubResource( 6 )
+
+[node name="HitArea" type="Area2D" parent="Kids/ToadKid2"]
+visible = false
+position = Vector2( 6.5, -21.5 )
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kids/ToadKid2/HitArea"]
+position = Vector2( 0, -1.5 )
+shape = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Kids/ToadKid2" groups=[
+"mg_anim",
+]]
+autoplay = "d"
+anims/d = SubResource( 13 )
+anims/falling = SubResource( 14 )
+anims/landed = SubResource( 15 )
+anims/pop = SubResource( 16 )
+
+[node name="ToadKid3" type="KinematicBody2D" parent="Kids" groups=[
+"kid",
+]]
+editor/display_folded = true
+position = Vector2( 227.069, 133.81 )
+scale = Vector2( 2, 2 )
+collision_layer = 2
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Kids/ToadKid3"]
+texture = ExtResource( 8 )
+offset = Vector2( 6, -16 )
+hframes = 8
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kids/ToadKid3"]
+visible = false
+position = Vector2( -0.5, 0 )
+shape = SubResource( 6 )
+
+[node name="HitArea" type="Area2D" parent="Kids/ToadKid3"]
+visible = false
+position = Vector2( 6.5, -21.5 )
+input_pickable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kids/ToadKid3/HitArea"]
+position = Vector2( 0, -1.5 )
+shape = SubResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Kids/ToadKid3" groups=[
+"mg_anim",
+]]
+autoplay = "d"
+anims/d = SubResource( 17 )
+anims/falling = SubResource( 18 )
+anims/landed = SubResource( 19 )
+anims/pop = SubResource( 20 )
+

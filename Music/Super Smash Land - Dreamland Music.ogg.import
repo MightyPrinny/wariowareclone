@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Super Smash Land - Dreamland Music.ogg-7a2695f85341059bbd3fd4695165985e.oggstr"
+
+[deps]
+
+source_file="res://Music/Super Smash Land - Dreamland Music.ogg"
+dest_files=[ "res://.import/Super Smash Land - Dreamland Music.ogg-7a2695f85341059bbd3fd4695165985e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

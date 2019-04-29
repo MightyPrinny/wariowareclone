@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Hop2.wav-3a0df03fd1f21e9274c947768222e4ee.sample"
+
+[deps]
+
+source_file="res://SFX/Hop2.wav"
+dest_files=[ "res://.import/Hop2.wav-3a0df03fd1f21e9274c947768222e4ee.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

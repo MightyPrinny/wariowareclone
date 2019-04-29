@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/warioware-microgame-intro-2.wav-ad8df78020a005738b078efa92021c4c.sample"
+
+[deps]
+
+source_file="res://SFX/warioware-microgame-intro-2.wav"
+dest_files=[ "res://.import/warioware-microgame-intro-2.wav-ad8df78020a005738b078efa92021c4c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

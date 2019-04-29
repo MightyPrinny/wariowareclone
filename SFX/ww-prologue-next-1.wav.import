@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ww-prologue-next-1.wav-ac81cf6717b2202080a40390a9ecc325.sample"
+
+[deps]
+
+source_file="res://SFX/ww-prologue-next-1.wav"
+dest_files=[ "res://.import/ww-prologue-next-1.wav-ac81cf6717b2202080a40390a9ecc325.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

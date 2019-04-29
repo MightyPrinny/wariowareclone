@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wing_flap.wav-3f6c4d5e3c58e23c0ba13bdf6c84e574.sample"
+
+[deps]
+
+source_file="res://SFX/wing_flap.wav"
+dest_files=[ "res://.import/wing_flap.wav-3f6c4d5e3c58e23c0ba13bdf6c84e574.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

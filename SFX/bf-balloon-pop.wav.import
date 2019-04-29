@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bf-balloon-pop.wav-46ea49203e0d016cf8b74a573ec6e130.sample"
+
+[deps]
+
+source_file="res://SFX/bf-balloon-pop.wav"
+dest_files=[ "res://.import/bf-balloon-pop.wav-46ea49203e0d016cf8b74a573ec6e130.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

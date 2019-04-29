@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/snap.wav-76cc1adf5d1b9af4a4c7ca83360e61ea.sample"
+
+[deps]
+
+source_file="res://SFX/snap.wav"
+dest_files=[ "res://.import/snap.wav-76cc1adf5d1b9af4a4c7ca83360e61ea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

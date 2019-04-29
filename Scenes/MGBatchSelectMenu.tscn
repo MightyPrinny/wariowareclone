@@ -1,0 +1,290 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://GFX/GameBatchSelect/gbsmbg.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/GameCartButton.gd" type="Script" id=2]
+[ext_resource path="res://GFX/GameBatchSelect/carts.png" type="Texture" id=3]
+[ext_resource path="res://GFX/GameBatchSelect/cursor-hand.png" type="Texture" id=4]
+[ext_resource path="res://GFX/GameBatchSelect/top-3-board.png" type="Texture" id=5]
+[ext_resource path="res://SpriteTextScript/SpriteText.gd" type="Script" id=6]
+[ext_resource path="res://GFX/smol-numbers.png" type="Texture" id=7]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var button = Global.last_batch_button
+	if button == \"\":
+		button = \"G1\"
+	get_node(button).grab_focus()
+	get_node(button).had_focus = true
+	get_node(button).show_scores()
+	AudioManager.play_music(\"batch-select-menu.ogg\",1)
+	pass # Replace with function body.
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[node name="MGBatchSelectMenu" type="Node2D"]
+scale = Vector2( 2, 2 )
+
+[node name="bg" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="UI" type="Control" parent="."]
+margin_left = 10.0
+margin_top = 14.0
+margin_right = 95.0
+margin_bottom = 135.0
+script = SubResource( 1 )
+
+[node name="G7" type="TextureButton" parent="UI"]
+editor/display_folded = true
+margin_left = 56.0
+margin_right = 80.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 24, 27 )
+focus_neighbour_left = NodePath("../G6")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath("../G4")
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+unlock_check_keys = PoolStringArray( "Batch6" )
+
+[node name="spr" type="Sprite" parent="UI/G7"]
+texture = ExtResource( 3 )
+centered = false
+hframes = 8
+frame = 7
+
+[node name="G6" type="TextureButton" parent="UI"]
+editor/display_folded = true
+margin_left = 28.0
+margin_right = 52.0
+margin_bottom = 27.0
+rect_min_size = Vector2( 24, 27 )
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+unlock_check_keys = PoolStringArray( "Batch5" )
+
+[node name="spr" type="Sprite" parent="UI/G6"]
+texture = ExtResource( 3 )
+centered = false
+hframes = 8
+frame = 6
+
+[node name="G5" type="TextureButton" parent="UI"]
+editor/display_folded = true
+margin_left = 28.0
+margin_top = 31.0
+margin_right = 52.0
+margin_bottom = 58.0
+rect_min_size = Vector2( 24, 27 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_right = NodePath(".")
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+unlock_check_keys = PoolStringArray( "Batch2", "Batch3", "Batch4" )
+
+[node name="spr" type="Sprite" parent="UI/G5"]
+texture = ExtResource( 3 )
+centered = false
+hframes = 8
+frame = 5
+
+[node name="G4" type="TextureButton" parent="UI"]
+editor/display_folded = true
+margin_left = 56.0
+margin_top = 62.0
+margin_right = 80.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 24, 27 )
+focus_neighbour_left = NodePath("../G2")
+focus_neighbour_top = NodePath("../G7")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+unlock_check_keys = PoolStringArray( "Batch1" )
+
+[node name="spr" type="Sprite" parent="UI/G4"]
+texture = ExtResource( 3 )
+centered = false
+hframes = 8
+frame = 3
+
+[node name="G3" type="TextureButton" parent="UI"]
+editor/display_folded = true
+margin_top = 62.0
+margin_right = 24.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 24, 27 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath(".")
+focus_neighbour_right = NodePath("../G2")
+focus_neighbour_bottom = NodePath(".")
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+unlock_check_keys = PoolStringArray( "Batch1" )
+
+[node name="spr" type="Sprite" parent="UI/G3"]
+texture = ExtResource( 3 )
+centered = false
+hframes = 8
+frame = 4
+
+[node name="G2" type="TextureButton" parent="UI"]
+editor/display_folded = true
+margin_left = 28.0
+margin_top = 62.0
+margin_right = 52.0
+margin_bottom = 89.0
+rect_min_size = Vector2( 24, 27 )
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+unlock_check_keys = PoolStringArray( "Batch1" )
+
+[node name="spr" type="Sprite" parent="UI/G2"]
+texture = ExtResource( 3 )
+centered = false
+hframes = 8
+frame = 2
+
+[node name="G1" type="TextureButton" parent="UI"]
+editor/display_folded = true
+margin_left = 28.0
+margin_top = 92.0
+margin_right = 52.0
+margin_bottom = 119.0
+rect_min_size = Vector2( 24, 27 )
+focus_neighbour_left = NodePath(".")
+focus_neighbour_top = NodePath("../G2")
+focus_neighbour_right = NodePath(".")
+focus_neighbour_bottom = NodePath(".")
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+scene_path = "res://Scenes/Batch1.tscn"
+score_check_key = "Batch1"
+
+[node name="spr" type="Sprite" parent="UI/G1"]
+position = Vector2( 0, 0.5 )
+texture = ExtResource( 3 )
+centered = false
+hframes = 8
+frame = 1
+
+[node name="cur" type="Sprite" parent="."]
+position = Vector2( 38, 106 )
+texture = ExtResource( 4 )
+centered = false
+offset = Vector2( 10, 22 )
+
+[node name="top3" type="Sprite" parent="."]
+position = Vector2( 100, 35 )
+texture = ExtResource( 5 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="1st" type="ReferenceRect" parent="top3"]
+margin_left = 9.5
+margin_top = 27.0
+margin_right = 49.5
+margin_bottom = 37.0
+border_color = Color( 1, 0, 0, 0 )
+script = ExtResource( 6 )
+ignore_rect = false
+char_spacing = 1
+centered = true
+space_width = 4
+text = "0"
+character_set = "0123456789"
+custom_char_spaces = PoolIntArray(  )
+visible_characters = -1
+font_texture = ExtResource( 7 )
+char_width = 3
+char_height = 5
+anim_speed = 60.0
+anim_interval = 1
+tab_spaces = 2
+texture_rows = 10
+
+[node name="2nd" type="ReferenceRect" parent="top3"]
+margin_left = 9.5
+margin_top = 37.5
+margin_right = 49.5
+margin_bottom = 47.5
+border_color = Color( 1, 0, 0, 0 )
+script = ExtResource( 6 )
+ignore_rect = false
+char_spacing = 1
+centered = true
+space_width = 4
+text = "0"
+character_set = "0123456789"
+custom_char_spaces = PoolIntArray(  )
+visible_characters = -1
+font_texture = ExtResource( 7 )
+char_width = 3
+char_height = 5
+anim_speed = 60.0
+anim_interval = 1
+tab_spaces = 2
+texture_rows = 10
+
+[node name="3rd" type="ReferenceRect" parent="top3"]
+margin_left = 9.5
+margin_top = 48.5
+margin_right = 49.5
+margin_bottom = 58.5
+border_color = Color( 1, 0, 0, 0 )
+script = ExtResource( 6 )
+ignore_rect = false
+char_spacing = 1
+centered = true
+space_width = 4
+text = "0"
+character_set = "0123456789"
+custom_char_spaces = PoolIntArray(  )
+visible_characters = -1
+font_texture = ExtResource( 7 )
+char_width = 3
+char_height = 5
+anim_speed = 60.0
+anim_interval = 1
+tab_spaces = 2
+texture_rows = 10
+

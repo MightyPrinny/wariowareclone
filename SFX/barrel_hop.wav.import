@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/barrel_hop.wav-28f32f1a4b9c5d8c83cfaecdde151e50.sample"
+
+[deps]
+
+source_file="res://SFX/barrel_hop.wav"
+dest_files=[ "res://.import/barrel_hop.wav-28f32f1a4b9c5d8c83cfaecdde151e50.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

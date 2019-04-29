@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/warioware-microgame-win-wa-2.wav-f1b34fac99c97e32b183a4fce435ed04.sample"
+
+[deps]
+
+source_file="res://SFX/warioware-microgame-win-wa-2.wav"
+dest_files=[ "res://.import/warioware-microgame-win-wa-2.wav-f1b34fac99c97e32b183a4fce435ed04.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

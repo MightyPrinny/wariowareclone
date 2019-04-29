@@ -1,0 +1,456 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scenes/MicroGames/mgMKMicroGame.gd" type="Script" id=1]
+[ext_resource path="res://GFX/MKBridge.png" type="Texture" id=2]
+[ext_resource path="res://GFX/SubZeroGB_76x89.png" type="Texture" id=3]
+[ext_resource path="res://GFX/GB_Buttons_Big.png" type="Texture" id=4]
+[ext_resource path="res://GFX/Pokeball_12x12.png" type="Texture" id=5]
+[ext_resource path="res://GFX/ScorpionWasCaught.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Walk"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 9.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 0 ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("../Pokeball:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 150, -0.25, 0, 0.25, 0, 152.285, -0.25, 0, 0.25, 0, 247.837, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.253927, 1.55057 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("../Pokeball:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 140, -0.25, 0, 0.25, 0, 132.876, -0.25, 0, 0.464631, -65.6917, 134.369, -0.48084, -65.6917, 0.291745, -17.9159, 134.369, -0.149628, 1.52588e-05, 0.291745, -17.9159, 237.648, -0.25, 0, 0.0640211, -19.9066, 242.625, -0.0640211, -32.3481, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.232316, 1.46953, 2.1, 2.88322, 3.0811 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../Pokeball:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../Scorp:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.6, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -2, 2 ), Vector2( -2, 2 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../Scorp:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1.6, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 250, 248 ), Vector2( 250, 248 ), Vector2( 248, 136 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../Pokeball:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 3, 3.2, 3.4, 3.6, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 2 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../PokeWin:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 194 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../PokeWin:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("..")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.4, 1.6, 5.1, 8.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "toss_sfx"
+}, {
+"args": [  ],
+"method": "poof_sfx"
+}, {
+"args": [  ],
+"method": "caught_sfx"
+}, {
+"args": [  ],
+"method": "victory_music"
+} ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Ded"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 46, 45 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "Idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "PokeThrow"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Walk"
+length = 1.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "Begin"
+tracks/0/type = "method"
+tracks/0/path = NodePath("SubZ/Anim")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Idle", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("Scorp/Anim")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Ded", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("SubZ:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, 248 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Scorp:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 250, 248 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("MasterPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("PokeWin:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Scorp:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -2, 2 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Pokeball:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -41.3763, 93.3883 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Pokeball:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "f1"
+length = 4.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("SubZ/Anim")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "f1", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "fatality_music"
+} ]
+}
+
+[node name="MKMicroGame" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="MKBridge" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="SubZ" type="Sprite" parent="."]
+position = Vector2( 80, 248 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 3 )
+offset = Vector2( 8, -37 )
+vframes = 7
+hframes = 8
+
+[node name="Anim" type="AnimationPlayer" parent="SubZ"]
+autoplay = "Idle"
+playback_speed = 2.0
+anims/Idle = SubResource( 1 )
+anims/Walk = SubResource( 2 )
+anims/f1 = SubResource( 3 )
+
+[node name="Scorp" type="Sprite" parent="."]
+position = Vector2( 248, 136 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 3 )
+offset = Vector2( 8, -37 )
+vframes = 7
+hframes = 8
+frame = 45
+
+[node name="Anim" type="AnimationPlayer" parent="Scorp"]
+autoplay = "Ded"
+playback_speed = 2.0
+anims/Ded = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/PokeThrow = SubResource( 6 )
+anims/Walk = SubResource( 7 )
+
+[node name="MasterPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Begin"
+anims/Begin = SubResource( 8 )
+anims/f1 = SubResource( 9 )
+
+[node name="Inputs" type="Position2D" parent="."]
+position = Vector2( 53, 42 )
+
+[node name="GBButtons" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
+vframes = 2
+hframes = 4
+
+[node name="Pokeball" type="Sprite" parent="."]
+position = Vector2( 208.963, 88.1943 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+hframes = 4
+frame = 2
+
+[node name="PokeWin" type="Sprite" parent="."]
+position = Vector2( 0, 194 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 6 )
+centered = false
+

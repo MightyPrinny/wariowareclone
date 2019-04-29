@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/power_up.wav-c47416f050167d983b2708c5fa81cec5.sample"
+
+[deps]
+
+source_file="res://SFX/power_up.wav"
+dest_files=[ "res://.import/power_up.wav-c47416f050167d983b2708c5fa81cec5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

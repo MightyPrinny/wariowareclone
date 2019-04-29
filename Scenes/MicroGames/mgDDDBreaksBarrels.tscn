@@ -1,0 +1,378 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Scenes/MicroGames/mgDDDBreaksBarrels.gd" type="Script" id=1]
+[ext_resource path="res://GFX/DDDBreaksBarrels/DDDBG.png" type="Texture" id=2]
+[ext_resource path="res://GFX/DDDBreaksBarrels/DDDWithHamer.png" type="Texture" id=3]
+[ext_resource path="res://GFX/DDDBreaksBarrels/Barrel.png" type="Texture" id=4]
+[ext_resource path="res://GFX/DDDBreaksBarrels/DDDFood.png" type="Texture" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+resource_name = "d"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../HammerHB:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -65, 20 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 30, 90 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "ded"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 30, 90 ), Vector2( -40, 85 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ 0.0, -177.5 ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "force_microgame_end"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("HB:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -7.5, 6 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "eat"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.2, 0.25 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HB:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ Vector2( -7.5, 6 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "smash"
+length = 0.5
+step = 0.08
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 5, 4, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../HammerHB:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.08, 0.24 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -65, 20 ), Vector2( 50, 95 ), Vector2( -65, 20 ) ]
+}
+
+[sub_resource type="GDScript" id=10]
+script/source = "extends Sprite
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+var spd = 1;
+var game_speed = 1
+onready var anim = $A
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$A.playback_speed = game_speed * spd
+	pass # Replace with function body.
+
+func _physics_process(delta):
+	global_position.x -= spd*delta*game_speed*60
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RectangleShape2D" id=5]
+
+[sub_resource type="Animation" id=7]
+resource_name = "d"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "ded"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="GDScript" id=9]
+script/source = "extends Sprite
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+var spd = 1;
+var game_speed
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	frame = randi() % hframes
+
+func _physics_process(delta):
+	global_position.x -= spd*delta*game_speed*60
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 9, 15 )
+
+[node name="DDDBreaksBarrels" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+
+[node name="DDDBG" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DDDWithHamer" type="Sprite" parent="."]
+position = Vector2( 30, 90 )
+texture = ExtResource( 3 )
+hframes = 7
+frame = 4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HB" type="Area2D" parent="DDDWithHamer"]
+position = Vector2( -7.5, 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DDDWithHamer/HB"]
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DDDWithHamer" groups=[
+"mg_anim",
+]]
+autoplay = "d"
+anims/d = SubResource( 2 )
+anims/ded = SubResource( 12 )
+anims/eat = SubResource( 11 )
+anims/smash = SubResource( 3 )
+
+[node name="Barrel" type="Sprite" parent="."]
+position = Vector2( -40, 160 )
+texture = ExtResource( 4 )
+centered = false
+offset = Vector2( 0, -15 )
+flip_h = true
+hframes = 8
+script = SubResource( 10 )
+
+[node name="Area2D" type="Area2D" parent="Barrel" groups=[
+"barrel",
+]]
+position = Vector2( 12, -2.5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel/Area2D"]
+shape = SubResource( 5 )
+
+[node name="A" type="AnimationPlayer" parent="Barrel"]
+autoplay = "d"
+anims/d = SubResource( 7 )
+anims/ded = SubResource( 8 )
+
+[node name="DDDFood" type="Sprite" parent="."]
+position = Vector2( 10, 175 )
+texture = ExtResource( 5 )
+centered = false
+offset = Vector2( 0, -8 )
+hframes = 3
+script = SubResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D2" type="Area2D" parent="DDDFood" groups=[
+"food",
+]]
+position = Vector2( 8, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DDDFood/Area2D2"]
+shape = SubResource( 6 )
+
+[node name="BarrelSpawnPos" type="Position2D" parent="."]
+position = Vector2( 160, 105 )
+
+[node name="HammerHB" type="Area2D" parent="."]
+position = Vector2( -65, 20 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HammerHB"]
+shape = SubResource( 4 )
+
