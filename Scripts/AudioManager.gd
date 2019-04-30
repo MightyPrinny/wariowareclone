@@ -6,6 +6,7 @@ const sfx_path = "res://SFX/";
 const mus_path = "res://Music/"
 
 #sound effects
+var sfx_players = []
 var available = []
 var playing = Dictionary()
 var ids = Dictionary()
@@ -19,6 +20,7 @@ var music_player:AudioStreamPlayer = AudioStreamPlayer.new();
 func _ready():
 	for i in range(max_channels):
 		var s = AudioStreamPlayer.new()
+		sfx_players.append(s)
 		
 		s.connect("finished",self,"_stream_finished",[s])
 		available.push_back(s)
@@ -71,6 +73,7 @@ func play_sfx(id,speed = -1,return_if_playing = false):
 		var sp = playing[id];
 		if return_if_playing:
 			return;
+		sp.stop()
 		sp.stream = cache[id]
 		sp.pitch_scale = speed;
 		sp.play(0);
@@ -97,9 +100,8 @@ func play_music(music_name,speed = -1):
 
 
 func stop_music():
-	stopping = true
-	music_player.stop();
-	stopping = false
+	if music_player.playing:
+		music_player.stop();
 	
 func stop_sfx(id):
 	stopping = true
@@ -109,16 +111,15 @@ func stop_sfx(id):
 		sp.stop();
 		playing.erase(id);
 		available.append(sp);
+		sp.stream = null
 	stopping = false
 	
 func stop_all():
-	#stopping = true
-	var keys = playing.keys()
-	for sp in keys:
-		var p = playing[sp]
-		#p.set_meta("i",-1)
-		available.append(p)
-		p.stop()
-		p.stream = null
-	playing = {}
+	if playing.empty():
+		return
+	available.clear()
+	for s in sfx_players:
+		s.stop()
+		available.push_back(s)
+	playing = Dictionary()
 	#stopping = false

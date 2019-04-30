@@ -5,6 +5,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "end"
+length = 2.5
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -12,7 +13,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.9 ),
+"times": PoolRealArray( 2.5 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -21,9 +22,12 @@ tracks/0/keys = {
 }
 
 [node name="Batch1" index="0" instance=ExtResource( 1 )]
-possible_microgames = PoolStringArray( "MKMicroGame", "DDDBreaksBarrels" )
+possible_microgames = PoolStringArray( "MKMicroGame", "DDDBreaksBarrels", "FindTheVampire" )
 has_boss = true
 boss = ExtResource( 2 )
+
+[node name="Timer" parent="HUD" index="0"]
+visible = true
 
 [node name="Fire" parent="HUD/Timer" index="2"]
 frame = 1

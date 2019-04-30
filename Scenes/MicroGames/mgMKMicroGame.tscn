@@ -49,7 +49,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
 "values": [ 10, 11, 0 ]
@@ -62,7 +62,7 @@ tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
 "points": PoolRealArray( 150, -0.25, 0, 0.25, 0, 152.285, -0.25, 0, 0.25, 0, 247.837, -0.25, 0, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.253927, 1.55057 )
+"times": PoolRealArray( 0, 0.2, 1.5 )
 }
 tracks/2/type = "bezier"
 tracks/2/path = NodePath("../Pokeball:position:y")
@@ -72,7 +72,7 @@ tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
 "points": PoolRealArray( 140, -0.25, 0, 0.25, 0, 132.876, -0.25, 0, 0.464631, -65.6917, 134.369, -0.48084, -65.6917, 0.291745, -17.9159, 134.369, -0.149628, 1.52588e-05, 0.291745, -17.9159, 237.648, -0.25, 0, 0.0640211, -19.9066, 242.625, -0.0640211, -32.3481, 0.25, 0 ),
-"times": PoolRealArray( 0, 0.232316, 1.46953, 2.1, 2.88322, 3.0811 )
+"times": PoolRealArray( 0, 0.2, 1.5, 1.9, 2.6, 2.8 )
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("../Pokeball:visible")
@@ -81,7 +81,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -93,7 +93,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 1.6, 1.7, 2 ),
+"times": PoolRealArray( 1.5, 1.6, 1.9 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( -2, 2 ), Vector2( -2, 2 ), Vector2( 1e-05, 1e-05 ) ]
@@ -105,7 +105,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 1.6, 1.7, 2 ),
+"times": PoolRealArray( 1.5, 1.6, 1.9 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 250, 248 ), Vector2( 250, 248 ), Vector2( 248, 136 ) ]
@@ -117,10 +117,10 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 3, 3.2, 3.4, 3.6, 3.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 2.9, 3.1, 3.3, 3.5, 3.7, 4.1, 4.3, 4.5, 4.7, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 1,
-"values": [ 0, 1, 2, 3, 2 ]
+"values": [ 0, 1, 2, 3, 2, 0, 1, 2, 3, 2 ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("../PokeWin:position")
@@ -129,10 +129,10 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 4 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
 "update": 0,
-"values": [ Vector2( 0, 194 ) ]
+"values": [  ]
 }
 tracks/8/type = "value"
 tracks/8/path = NodePath("../PokeWin:visible")
@@ -141,10 +141,10 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 4 ),
+"times": PoolRealArray( -0.1 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ true ]
+"values": [ false ]
 }
 tracks/9/type = "method"
 tracks/9/path = NodePath("..")
@@ -153,7 +153,7 @@ tracks/9/loop_wrap = true
 tracks/9/imported = false
 tracks/9/enabled = true
 tracks/9/keys = {
-"times": PoolRealArray( 0.4, 1.6, 5.1, 8.9 ),
+"times": PoolRealArray( 0.2, 1.6, 4.3, 8.9 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
@@ -163,7 +163,7 @@ tracks/9/keys = {
 "method": "poof_sfx"
 }, {
 "args": [  ],
-"method": "caught_sfx"
+"method": "catched_sfx"
 }, {
 "args": [  ],
 "method": "victory_music"
@@ -358,7 +358,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1.1 ),
+"times": PoolRealArray( 0.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ "f1", -1, 1.0, false ],
@@ -372,7 +372,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.1 ),
+"times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -427,7 +427,9 @@ anims/Idle = SubResource( 5 )
 anims/PokeThrow = SubResource( 6 )
 anims/Walk = SubResource( 7 )
 
-[node name="MasterPlayer" type="AnimationPlayer" parent="."]
+[node name="MasterPlayer" type="AnimationPlayer" parent="." groups=[
+"mg_anim",
+]]
 autoplay = "Begin"
 anims/Begin = SubResource( 8 )
 anims/f1 = SubResource( 9 )
@@ -442,13 +444,14 @@ vframes = 2
 hframes = 4
 
 [node name="Pokeball" type="Sprite" parent="."]
-position = Vector2( 208.963, 88.1943 )
+position = Vector2( 247.837, 242.625 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 hframes = 4
 frame = 2
 
 [node name="PokeWin" type="Sprite" parent="."]
+visible = false
 position = Vector2( 0, 194 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 6 )

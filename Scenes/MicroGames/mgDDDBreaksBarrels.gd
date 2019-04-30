@@ -15,7 +15,7 @@ onready var ddd_hb = $DDDWithHamer/HB
 
 func _init():
 	hint_string = "Smash barrels"
-	time = 5
+	time = 7
 
 onready var barrel_node = $Barrel
 onready var food_node = $DDDFood

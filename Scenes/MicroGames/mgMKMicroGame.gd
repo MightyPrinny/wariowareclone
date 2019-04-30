@@ -15,6 +15,8 @@ onready var sfx_caught = AudioManager.get_sound_id("SFX_CAUGHT_MON.wav");
 onready var sfx_input = AudioManager.get_sound_id("input.wav");
 var presses = 0;
 
+onready var sub_anim = $SubZ/Anim
+
 var won = false;
 
 func _init():
@@ -25,16 +27,15 @@ func _init():
 func _ready():
 	generate_inputs();
 	AudioManager.play_music("MKBGM.OGG");
-	master_player.playback_speed = game_player.game_speed;
-	$SubZ/Anim.playback_speed = game_player.game_speed*2;
-	$Scorp/Anim.playback_speed = game_player.game_speed*2;
+	$SubZ/Anim.playback_speed = game_speed*2;
+	$Scorp/Anim.playback_speed = game_speed*2;
 	pass # Replace with function body.
 
 func _process(delta):
 	if won:
 		return
 	if input_timer > 0:
-		input_timer-= delta*game_player.game_speed;
+		input_timer-= delta*game_speed;
 		if input_timer <= 0:
 			input_timer = 0;
 			for spr in inputs_sprites:
@@ -48,7 +49,7 @@ func _process(delta):
 		AudioManager.play_sfx(sfx_input);
 		if presses >= inputs.size():
 			#to do:play fatality according to the difficulty
-			master_player.play("f1",-1,master_player.playback_speed*game_player.game_speed);
+			master_player.play("f1")
 			game_cleared();
 			won = true;
 	elif (Input.is_action_just_pressed("ui_accept")||Input.is_action_just_pressed("ui_cancel")||Input.is_action_just_pressed("ui_down")||Input.is_action_just_pressed("ui_left") ||Input.is_action_just_pressed("ui_up")||Input.is_action_just_pressed("ui_right")  )&& input_timer > 0:
@@ -68,6 +69,9 @@ func poof_sfx():
 func caught_sfx():
 	AudioManager.stop_music();
 	AudioManager.play_sfx(sfx_caught);
+
+func catched_sfx():
+	pass
 	
 func fatality_music():
 	AudioManager.play_music("MKJingle.ogg");
@@ -80,7 +84,7 @@ func generate_inputs():
 	#TO DO: Check difficulty
 	inputs = [];
 	var actions = ["ui_left","ui_right","ui_down","ui_up","ui_accept","ui_cancel"];
-	var length = 3 + game_player.game_difficulty;
+	var length = 3 + difficulty;
 	
 	for i in range(length):
 		inputs.append(actions[randi()%actions.size()]);

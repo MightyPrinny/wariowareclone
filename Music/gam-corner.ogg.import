@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/gam-corner.ogg-dec235a3d4907fd3f2ca902425db1eae.oggstr"
+
+[deps]
+
+source_file="res://Music/gam-corner.ogg"
+dest_files=[ "res://.import/gam-corner.ogg-dec235a3d4907fd3f2ca902425db1eae.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

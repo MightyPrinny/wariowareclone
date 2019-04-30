@@ -226,10 +226,12 @@ func on_player_ending():
 func on_win_anim_end():
 	if !batch_cleared && counter >= games_until_boss:
 		batch_cleared = true;
+		counter +=1
 		update_highscore()
 		save_game()
 		master_anim.play("end");
 		anim.play("win");
+		AudioManager.play_sfx(sfx_game_over)
 		print(name+" boss cleared for the first time")
 		
 		return

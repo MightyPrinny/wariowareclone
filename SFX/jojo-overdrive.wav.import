@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/jojo-overdrive.wav-ebaf7e9db3fec9b45db41a1cc3455645.sample"
+
+[deps]
+
+source_file="res://SFX/jojo-overdrive.wav"
+dest_files=[ "res://.import/jojo-overdrive.wav-ebaf7e9db3fec9b45db41a1cc3455645.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
