@@ -4,7 +4,8 @@ extends Node2D
 #it contains the available microgames as a PackedScene array
 var possible_microgames_list = [];
 export(PoolStringArray) var possible_microgames = PoolStringArray();
-export var endless:bool = false;
+
+export var no_save:bool = false;
 export var has_boss:bool = false;
 export var boss:PackedScene = null;
 export var games_until_speedup = 3;
@@ -44,29 +45,34 @@ onready var live_node_parent = $HUD/Hud4/Lives;
 onready var lives = 4;
 var life_sprites = [];
 
-var base_game_speed = 1;
+export var base_game_speed:float = 1.0;
 var game_speed = 1;
-var game_difficulty = 0;
+export(int,"easy","medium","hard") var game_difficulty = 0;
 
 onready var counter = 0;
 onready var counter_node = $HUD/Hud4/C/Counter;
 
-onready var sfx_intro1 = AudioManager.get_sound_id("warioware-microgame-intro.wav");
-onready var sfx_intro2 = AudioManager.get_sound_id("warioware-microgame-intro-2.wav");
+onready var sfx_intro = AudioManager.get_sound_id("wwgb-get-ready.wav")
 
-onready var sfx_success1 = AudioManager.get_sound_id("warioware-microgame-win-wa.wav");
-onready var sfx_success2 = AudioManager.get_sound_id("warioware-microgame-win-wa-2.wav");
+onready var sfx_intro1 = AudioManager.get_sound_id("wwgb-next.wav");
+onready var sfx_intro2 = AudioManager.get_sound_id("wwgb-next.wav");
 
-onready var sfx_lose = AudioManager.get_sound_id("ww-prologue-loss1.wav");
-onready var sfx_lose2 = AudioManager.get_sound_id("ww-prologue-loss-2.wav")
-onready var sfx_speedup = AudioManager.get_sound_id("warioware-speedup.wav");
-onready var sfx_game_over = AudioManager.get_sound_id("warioware-game-over.wav")
+onready var sfx_success1 = AudioManager.get_sound_id("wwgb-win.wav");
+onready var sfx_success2 = AudioManager.get_sound_id("wwgb-win.wav");
+
+onready var sfx_lose = AudioManager.get_sound_id("wwgb-lose.wav");
+onready var sfx_lose2 = AudioManager.get_sound_id("wwgb-lose.wav")
+onready var sfx_speedup = AudioManager.get_sound_id("wwgb-speedup.wav");
+onready var sfx_game_over = AudioManager.get_sound_id("wwgb-end-bad.wav")
 onready var game_over_scene = load("res://Scenes/GameOver.tscn")
 
 var batch_cleared = false;
 var high_scores = [0,0,0];
 
 var enable_win_key = true
+var intro = true
+
+onready var sfx_clock = AudioManager.get_sound_id("timer.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -90,12 +96,15 @@ func _ready():
 	set_game_speed(base_game_speed)
 	AudioManager.stop_all();
 	AudioManager.stop_music()
-	AudioManager.play_sfx_name("ww-prologue-get-ready.wav")
+	
 	if always_endless:
 		batch_cleared = true;
 	pass # Replace with function body.
 	
-func _physics_process(delta):
+func _process(delta):
+	if intro:
+		intro = false
+		AudioManager.play_sfx(sfx_intro)
 	if in_game:
 		if enable_win_key && Input.is_action_just_pressed("win"):
 			end_micro_game = true;
@@ -114,8 +123,7 @@ func _physics_process(delta):
 			if timer_enabled && micro_game_timer == 0:
 					timer_anim.play("boom");
 		if end_micro_game:
-			AudioManager.stop_all();
-			AudioManager.stop_music();
+			
 			micro_game_timer = 0;
 			if won_micro_game:
 				master_anim.play("win game");
@@ -144,13 +152,33 @@ func prepare_next():
 	if !boss_time:
 		boss_game_counter += 1;
 	if boss_game_counter >= games_until_boss:
-		set_game_speed(base_game_speed)
-		AudioManager.play_sfx(sfx_speedup,game_speed);
-		master_anim.play("boss");
-		speedup_counter = 0;
-		boss_game_counter = 0;
-		boss_time = true
-		return
+		if has_boss:
+			set_game_speed(base_game_speed)
+			AudioManager.play_sfx(sfx_speedup,game_speed);
+			master_anim.play("boss");
+			speedup_counter = 0;
+			boss_game_counter = 0;
+			boss_time = true
+			return
+		elif game_difficulty< 2:
+			boss_game_counter = 0
+			anim.play("d")
+			if game_difficulty < 2:
+				game_difficulty += 1;
+				set_game_speed(base_game_speed)
+				master_anim.play("levelup")
+				AudioManager.play_sfx(sfx_speedup,game_speed);
+			speedup_counter = 0
+			return
+		elif game_difficulty >= 2:
+			boss_game_counter = 0
+			base_game_speed += speedup_amount
+			set_game_speed(base_game_speed)
+			speedup_counter = 0;
+			AudioManager.play_sfx(sfx_speedup,game_speed);
+			master_anim.play("speedup");
+			return
+			
 	if !boss_time:
 		speedup_counter+=1;
 		if speedup_counter>games_until_speedup:
@@ -197,6 +225,8 @@ func win_game():
 	pass
 	
 func lose_sfx():
+	AudioManager.stop_all();
+	AudioManager.stop_music()
 	var sfx_id = 0;
 	var rng = randi() %2;
 	if rng == 0:
@@ -265,6 +295,8 @@ func on_lose_anim_end():
 		
 	
 func save_game():
+	if no_save:
+		return
 	for i in range(3):
 		Global.game_data[name+".hs"+str(i)] = high_scores[i]
 	Global.game_data[name+".cleared"] = batch_cleared

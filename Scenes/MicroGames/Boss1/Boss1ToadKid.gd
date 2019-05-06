@@ -44,7 +44,7 @@ func _process(delta):
 		yspeed += delta*60*grav*game_speed;
 		if yspeed > 6:
 			yspeed = 6;
-		var col = move_and_collide(Vector2(0,yspeed))
+		var col = move_and_collide(Vector2(0,yspeed)*60*delta)
 		if col != null:
 			yspeed = 0;
 			if !landed:

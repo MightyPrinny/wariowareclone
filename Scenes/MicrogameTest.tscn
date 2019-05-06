@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/MicroGamePlayer.tscn" type="PackedScene" id=1]
+
+[sub_resource type="Animation" id=1]
+resource_name = "end"
+length = 2.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "on_player_ending"
+} ]
+}
+
+[node name="MGTest" index="0" instance=ExtResource( 1 )]
+possible_microgames = PoolStringArray( "SumoFight" )
+no_save = true
+games_until_speedup = 1
+always_endless = true
+games_until_boss = 3
+game_difficulty = 2
+
+[node name="Timer" parent="HUD" index="0"]
+visible = true
+
+[node name="Fire" parent="HUD/Timer" index="2"]
+frame = 1
+
+[node name="AnimationPlayer" parent="HUD/Timer" index="4"]
+playback_process_mode = 1
+
+[node name="Hud2" parent="HUD" index="2"]
+frame = 8
+
+[node name="AnimationPlayer" parent="HUD" index="5"]
+playback_process_mode = 1
+
+[node name="MasterPlayer" parent="." index="2"]
+playback_process_mode = 1
+anims/end = SubResource( 1 )
+

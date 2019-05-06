@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://Scenes/MicroGames/mgFindTheVampire.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/MicroGames/Batch1/mgFindTheVampire.gd" type="Script" id=1]
 [ext_resource path="res://GFX/FindTheVampire/find-the-vampire-bg.png" type="Texture" id=2]
 [ext_resource path="res://GFX/FindTheVampire/Vampire.png" type="Texture" id=3]
 [ext_resource path="res://GFX/FindTheVampire/joseph-joestar.png" type="Texture" id=4]
@@ -305,7 +305,7 @@ tracks/11/keys = {
 "values": [ Vector2( 0, -4 ), Vector2( -2000, -4 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=7]
 resource_name = "reveal wrong"
 length = 2.0
 step = 0.08
@@ -381,8 +381,7 @@ tracks/5/keys = {
 "values": [ Vector2( 0, -4 ), Vector2( -2000, -4 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "wavev"
+[sub_resource type="Animation" id=8]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -396,27 +395,9 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 2, 0.5, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, -20 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "wavev2"
-length = 0.5
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 2, 0.5, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 20 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=9]
-resource_name = "wavev"
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -429,28 +410,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.25, 0.5 ),
 "transitions": PoolRealArray( 2, 0.5, 1 ),
 "update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, -20 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( 0, 20 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=10]
-resource_name = "wavev2"
-length = 0.5
-step = 0.05
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5 ),
-"transitions": PoolRealArray( 2, 0.5, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 20 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=11]
-resource_name = "wavev"
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -466,8 +429,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -20 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=12]
-resource_name = "wavev2"
+[sub_resource type="Animation" id=11]
 length = 0.5
 step = 0.05
 tracks/0/type = "value"
@@ -483,7 +445,39 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 20 ), Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=12]
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -20 ), Vector2( 0, 0 ) ]
+}
+
 [sub_resource type="Animation" id=13]
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5 ),
+"transitions": PoolRealArray( 2, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 20 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=14]
 length = 0.64
 loop = true
 step = 0.08
@@ -536,8 +530,7 @@ tracks/3/keys = {
 "values": [ 4, 5, 6, 5 ]
 }
 
-[sub_resource type="Animation" id=14]
-resource_name = "fly"
+[sub_resource type="Animation" id=15]
 length = 0.64
 loop = true
 step = 0.08
@@ -602,7 +595,7 @@ tracks/4/keys = {
 "values": [ 4, 5, 6, 5 ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 length = 2.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -631,8 +624,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=16]
-resource_name = "h"
+[sub_resource type="Animation" id=17]
 length = 2.0
 step = 0.05
 tracks/0/type = "method"
@@ -668,8 +660,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=17]
-resource_name = "m"
+[sub_resource type="Animation" id=18]
 length = 2.0
 step = 0.05
 tracks/0/type = "method"
@@ -777,9 +768,9 @@ frame = 21
 autoplay = "d"
 anims/d = SubResource( 5 )
 anims/reveal = SubResource( 6 )
-"anims/reveal wrong" = SubResource( 18 )
-anims/wavev = SubResource( 7 )
-anims/wavev2 = SubResource( 8 )
+"anims/reveal wrong" = SubResource( 7 )
+anims/wavev = SubResource( 8 )
+anims/wavev2 = SubResource( 9 )
 
 [node name="sonic-explosion" type="Sprite" parent="Bats/b3"]
 position = Vector2( -1000, 40 )
@@ -802,8 +793,8 @@ frame = 5
 [node name="Anim" type="AnimationPlayer" parent="Bats/b4/bat" groups=[
 "mg_anim",
 ]]
-anims/wavev = SubResource( 9 )
-anims/wavev2 = SubResource( 10 )
+anims/wavev = SubResource( 10 )
+anims/wavev2 = SubResource( 11 )
 
 [node name="b5" type="Node2D" parent="Bats"]
 position = Vector2( 128, 64 )
@@ -820,15 +811,15 @@ frame = 5
 [node name="Anim" type="AnimationPlayer" parent="Bats/b5/bat" groups=[
 "mg_anim",
 ]]
-anims/wavev = SubResource( 11 )
-anims/wavev2 = SubResource( 12 )
+anims/wavev = SubResource( 12 )
+anims/wavev2 = SubResource( 13 )
 
 [node name="BatAnim" type="AnimationPlayer" parent="Bats" groups=[
 "mg_anim",
 ]]
 autoplay = "d"
-anims/d = SubResource( 13 )
-anims/fly = SubResource( 14 )
+anims/d = SubResource( 14 )
+anims/fly = SubResource( 15 )
 
 [node name="SwapTween" type="Tween" parent="." groups=[
 "mg_anim",
@@ -837,12 +828,11 @@ anims/fly = SubResource( 14 )
 [node name="SwapTimeline" type="AnimationPlayer" parent="." groups=[
 "mg_anim",
 ]]
-anims/e = SubResource( 15 )
-anims/h = SubResource( 16 )
-anims/m = SubResource( 17 )
+anims/e = SubResource( 16 )
+anims/h = SubResource( 17 )
+anims/m = SubResource( 18 )
 
 [node name="arrow" type="Sprite" parent="."]
 position = Vector2( -48, 92 )
 texture = ExtResource( 6 )
 hframes = 4
-

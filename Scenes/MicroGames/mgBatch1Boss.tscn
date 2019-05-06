@@ -9,10 +9,10 @@
 [ext_resource path="res://Scenes/MicroGames/Boss1/Boss1ToadKid.gd" type="Script" id=7]
 [ext_resource path="res://GFX/Batch1Boss/b1b-SmolToad-8.png" type="Texture" id=8]
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=2]
 script/source = "extends Sprite
 
 # Declare member variables here. Examples:
@@ -45,7 +45,7 @@ func _draw():
 #	pass
 "
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 4 )
 
 [sub_resource type="Animation" id=4]
@@ -137,7 +137,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=6]
 resource_name = "win"
 length = 4.0
 loop = true
@@ -200,10 +200,10 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 80, 72 )
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=8]
 resource_name = "e"
 length = 5.0
 loop = true
@@ -268,98 +268,145 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 1.7, 3.4, 5 )
 }
 
-[sub_resource type="Animation" id=22]
-resource_name = "h"
-
-[sub_resource type="Animation" id=23]
-resource_name = "m"
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 3.5, 6 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 8, 8 )
-
-[sub_resource type="Animation" id=8]
-resource_name = "d"
-length = 0.6
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 0, 1 ]
-}
-
 [sub_resource type="Animation" id=9]
-resource_name = "falling"
-length = 0.2
+resource_name = "h"
+length = 4.0
 loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
+step = 1.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Kids/ToadKid1:position:x")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 4, 5 ]
+"points": PoolRealArray( 144, -0.25, 0, 0.25, 0, 224, -0.25, 0, 0.25, 0, 264, -0.25, 0, 0.25, 0, 160, -0.25, 0, 0.25, 0, 144, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2, 3, 4 )
 }
-
-[sub_resource type="Animation" id=10]
-resource_name = "landed"
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 6, 7 ]
-}
-
-[sub_resource type="Animation" id=11]
-resource_name = "pop"
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 1,
-"values": [ 2, 3, 4 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Kids/ToadKid1:position:y")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.6 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ "falling", -1, 1.0, false ],
-"method": "play"
-} ]
+"points": PoolRealArray( 96, -0.25, 0, 0.25, 0, 72, -0.25, 0, 0.25, 0, 144, -0.25, 0, 0.25, 0, 184, -0.25, 0, 0.25, 0, 96, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2, 3, 4 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Kids/ToadKid2:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 144, -0.25, 0, 0.25, 0, 128, -0.25, 0, 0.25, 0, 184, -0.25, 0, 0.25, 0, 248, -0.25, 0, 0.25, 0, 144, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2, 3, 4 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Kids/ToadKid2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 176, -0.25, 0, 0.25, 0, 104, -0.25, 0, 0.25, 0, 64, -0.25, 0, 0.25, 0, 96, -0.25, 0, 0.25, 0, 176, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2, 3, 4 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Kids/ToadKid3:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 288, -0.25, 0, 0.25, 0, 256, -0.25, 0, 0.25, 0, 152, -0.25, 0, 0.25, 0, 128, -0.25, 0, 0.25, 0, 288, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2, 3, 4 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Kids/ToadKid3:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 120, -0.25, 0, 0.25, 0, 192, -0.25, 0, 0.25, 0, 192, -0.25, 0, 0.25, 0, 88, -0.25, 0, 0.25, 0, 120, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1, 2, 3, 4 )
 }
 
+[sub_resource type="Animation" id=10]
+resource_name = "m"
+length = 8.0
+loop = true
+step = 0.05
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("Kids/ToadKid1:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 144, -0.25, 0, 0.25, 0, 240, -0.25, 0, 0.25, 0, 296, -0.504232, -53.4152, 0.415768, 6.02551, 184, -0.52016, 73.445, 0.483539, -75.1567, 144, -0.676462, -50.0168, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4, 6, 8 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Kids/ToadKid1:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 96, -0.25, 0, 0.74, 12.8433, 112, -0.818036, -77.4575, 0.718517, 71.1442, 152, -0.660952, 46.0043, 0.776289, 1.42383, 160, -1.02371, -51.1567, 0.25, 0, 96, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4, 6, 8 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Kids/ToadKid2:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 144, -0.25, 0, 0.25, 0, 240, -0.877134, -39.9317, 0.44, 17.445, 290, -0.745177, 56.9548, 0.43, -2.83466, 184, -0.76981, 5.74869, 0.500802, -25.21, 144, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4, 6, 8 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Kids/ToadKid2:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 144, -0.25, 0, 0.25, 0, 176, -0.25, 0, 0.25, 0, 104, -0.25, 0, 0.25, 0, 104, -0.860776, 65.1096, 0.675777, -38.086, 144, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2, 4, 6, 8 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Kids/ToadKid3:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 288, -0.25, 0, 0.25, 0, 136, -0.787402, 2.15088, 1.19239, -18.4882, 288, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 4, 8 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Kids/ToadKid3:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 128, -0.25, 0, 1.43313, -0.168686, 128, -1.79859, 133.986, 1.45181, 10.1509, 128, -1.81534, 72.0682, 0.639599, 103.027 ),
+"times": PoolRealArray( 0, 4, 8 )
+}
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 3.5, 6 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 8, 8 )
+
 [sub_resource type="Animation" id=13]
-resource_name = "d"
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -376,7 +423,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=14]
-resource_name = "falling"
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -393,7 +439,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=15]
-resource_name = "landed"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -408,7 +453,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=16]
-resource_name = "pop"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -437,7 +481,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=17]
-resource_name = "d"
 length = 0.6
 loop = true
 tracks/0/type = "value"
@@ -454,7 +497,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=18]
-resource_name = "falling"
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -471,7 +513,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=19]
-resource_name = "landed"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -486,7 +527,80 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=20]
-resource_name = "pop"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "falling", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=21]
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 4, 5 ]
+}
+
+[sub_resource type="Animation" id=23]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 6, 7 ]
+}
+
+[sub_resource type="Animation" id=24]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -533,8 +647,10 @@ __meta__ = {
 
 [node name="Easy" type="TileMap" parent="."]
 editor/display_folded = true
+visible = false
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
 format = 1
 tile_data = PoolIntArray( 458752, 12, 0, 458753, 13, 0, 458754, 14, 0, 458757, 18, 0, 458760, 18, 0, 524288, 15, 0, 524289, 16, 0, 524290, 17, 0, 589824, 15, 0, 589825, 16, 0, 589826, 17, 0 )
 
@@ -548,7 +664,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Easy/KinematicBody2D"]
 position = Vector2( 8, 8 )
-shape = SubResource( 12 )
+shape = SubResource( 1 )
 
 [node name="KinematicBody2D2" type="StaticBody2D" parent="Easy"]
 editor/display_folded = true
@@ -560,7 +676,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Easy/KinematicBody2D2"]
 position = Vector2( 8, 8 )
-shape = SubResource( 12 )
+shape = SubResource( 1 )
 
 [node name="KinematicBody2D3" type="StaticBody2D" parent="Easy"]
 editor/display_folded = true
@@ -572,13 +688,14 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Easy/KinematicBody2D3"]
 position = Vector2( 8, 8 )
-shape = SubResource( 12 )
+shape = SubResource( 1 )
 
 [node name="Medium" type="TileMap" parent="."]
 editor/display_folded = true
 visible = false
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
 format = 1
 tile_data = PoolIntArray( 47, 0, 0, 393221, 43, 0, 393223, 43, 0, 393225, 43, 0, 458752, 12, 0, 458753, 13, 0, 458754, 14, 0, 458757, 45, 0, 458759, 45, 0, 458761, 45, 0, 524288, 15, 0, 524289, 16, 0, 524290, 17, 0, 589824, 15, 0, 589825, 16, 0, 589826, 17, 0 )
 
@@ -592,7 +709,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Medium/KinematicBody2D4"]
 position = Vector2( 8, 8 )
-shape = SubResource( 12 )
+shape = SubResource( 1 )
 
 [node name="KinematicBody2D5" type="StaticBody2D" parent="Medium"]
 editor/display_folded = true
@@ -604,7 +721,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Medium/KinematicBody2D5"]
 position = Vector2( 8, 8 )
-shape = SubResource( 12 )
+shape = SubResource( 1 )
 
 [node name="KinematicBody2D6" type="StaticBody2D" parent="Medium"]
 editor/display_folded = true
@@ -616,7 +733,7 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Medium/KinematicBody2D6"]
 position = Vector2( 8, 8 )
-shape = SubResource( 12 )
+shape = SubResource( 1 )
 
 [node name="KinematicBody2D7" type="StaticBody2D" parent="Medium"]
 editor/display_folded = true
@@ -628,15 +745,14 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Medium/KinematicBody2D7"]
 position = Vector2( 8, 8 )
-shape = SubResource( 12 )
+shape = SubResource( 1 )
 
 [node name="Hard" type="TileMap" parent="."]
-editor/display_folded = true
-visible = false
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 4
 format = 1
-tile_data = PoolIntArray( 47, 0, 0, 393221, 43, 0, 393222, 43, 0, 458752, 12, 0, 458753, 13, 0, 458754, 14, 0, 458757, 45, 0, 458758, 45, 0, 524288, 15, 0, 524289, 16, 0, 524290, 17, 0, 589824, 15, 0, 589825, 16, 0, 589826, 17, 0 )
+tile_data = PoolIntArray( 47, 0, 0, 393221, 43, 0, 393222, 43, 0, 393223, 43, 0, 458752, 12, 0, 458753, 13, 0, 458754, 14, 0, 458757, 45, 0, 458758, 45, 0, 458759, 45, 0, 524288, 15, 0, 524289, 16, 0, 524290, 17, 0, 589824, 15, 0, 589825, 16, 0, 589826, 17, 0 )
 
 [node name="KinematicBody2D8" type="StaticBody2D" parent="Hard"]
 editor/display_folded = true
@@ -648,19 +764,19 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hard/KinematicBody2D8"]
 position = Vector2( 8, 8 )
-shape = SubResource( 12 )
+shape = SubResource( 1 )
 
 [node name="KinematicBody2D9" type="StaticBody2D" parent="Hard"]
 editor/display_folded = true
 position = Vector2( 80, 112 )
-scale = Vector2( 2, 6 )
+scale = Vector2( 3, 6 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hard/KinematicBody2D9"]
 position = Vector2( 8, 8 )
-shape = SubResource( 12 )
+shape = SubResource( 1 )
 
 [node name="b1b-hud" type="Sprite" parent="."]
 position = Vector2( 12, 8 )
@@ -672,16 +788,14 @@ hframes = 5
 position = Vector2( 24, 100 )
 texture = ExtResource( 5 )
 hframes = 9
-frame = 6
 
 [node name="Gun" type="Sprite" parent="Toad"]
-visible = false
 position = Vector2( 0, 2 )
 texture = ExtResource( 6 )
 offset = Vector2( 10, -4 )
 hframes = 3
 frame = 1
-script = SubResource( 1 )
+script = SubResource( 2 )
 
 [node name="sp" type="Position2D" parent="Toad/Gun"]
 position = Vector2( 11, -2.5 )
@@ -702,7 +816,7 @@ input_pickable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Toad/Gun/Bullet/HitBox"]
 visible = false
 position = Vector2( 7, -2 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Toad" groups=[
 "mg_anim",
@@ -710,7 +824,7 @@ shape = SubResource( 2 )
 autoplay = "d"
 anims/d = SubResource( 4 )
 anims/kids_died = SubResource( 5 )
-anims/win = SubResource( 24 )
+anims/win = SubResource( 6 )
 
 [node name="ScreenArea" type="Area2D" parent="."]
 editor/display_folded = true
@@ -722,12 +836,12 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScreenArea"]
 position = Vector2( 80, 72 )
-shape = SubResource( 3 )
+shape = SubResource( 7 )
 
 [node name="KidMover" type="AnimationPlayer" parent="."]
-anims/e = SubResource( 21 )
-anims/h = SubResource( 22 )
-anims/m = SubResource( 23 )
+anims/e = SubResource( 8 )
+anims/h = SubResource( 9 )
+anims/m = SubResource( 10 )
 
 [node name="Kids" type="Node" parent="."]
 
@@ -735,7 +849,7 @@ anims/m = SubResource( 23 )
 "kid",
 ]]
 editor/display_folded = true
-position = Vector2( 153.698, 100.931 )
+position = Vector2( 262.764, 141.774 )
 scale = Vector2( 2, 2 )
 collision_layer = 2
 script = ExtResource( 7 )
@@ -752,7 +866,7 @@ frame = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kids/ToadKid1"]
 visible = false
 position = Vector2( -0.5, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 11 )
 
 [node name="HitArea" type="Area2D" parent="Kids/ToadKid1"]
 visible = false
@@ -761,22 +875,22 @@ input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kids/ToadKid1/HitArea"]
 position = Vector2( 0, -1.5 )
-shape = SubResource( 7 )
+shape = SubResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Kids/ToadKid1" groups=[
 "mg_anim",
 ]]
 autoplay = "d"
-anims/d = SubResource( 8 )
-anims/falling = SubResource( 9 )
-anims/landed = SubResource( 10 )
-anims/pop = SubResource( 11 )
+anims/d = SubResource( 13 )
+anims/falling = SubResource( 14 )
+anims/landed = SubResource( 15 )
+anims/pop = SubResource( 16 )
 
 [node name="ToadKid2" type="KinematicBody2D" parent="Kids" groups=[
 "kid",
 ]]
 editor/display_folded = true
-position = Vector2( 284.604, 109.013 )
+position = Vector2( 182.269, 65.2365 )
 scale = Vector2( 2, 2 )
 collision_layer = 2
 script = ExtResource( 7 )
@@ -793,7 +907,7 @@ frame = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kids/ToadKid2"]
 visible = false
 position = Vector2( -0.5, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 11 )
 
 [node name="HitArea" type="Area2D" parent="Kids/ToadKid2"]
 visible = false
@@ -802,22 +916,22 @@ input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kids/ToadKid2/HitArea"]
 position = Vector2( 0, -1.5 )
-shape = SubResource( 7 )
+shape = SubResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Kids/ToadKid2" groups=[
 "mg_anim",
 ]]
 autoplay = "d"
-anims/d = SubResource( 13 )
-anims/falling = SubResource( 14 )
-anims/landed = SubResource( 15 )
-anims/pop = SubResource( 16 )
+anims/d = SubResource( 17 )
+anims/falling = SubResource( 18 )
+anims/landed = SubResource( 19 )
+anims/pop = SubResource( 20 )
 
 [node name="ToadKid3" type="KinematicBody2D" parent="Kids" groups=[
 "kid",
 ]]
 editor/display_folded = true
-position = Vector2( 227.069, 133.81 )
+position = Vector2( 155.215, 192 )
 scale = Vector2( 2, 2 )
 collision_layer = 2
 script = ExtResource( 7 )
@@ -834,7 +948,7 @@ frame = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kids/ToadKid3"]
 visible = false
 position = Vector2( -0.5, 0 )
-shape = SubResource( 6 )
+shape = SubResource( 11 )
 
 [node name="HitArea" type="Area2D" parent="Kids/ToadKid3"]
 visible = false
@@ -843,14 +957,14 @@ input_pickable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kids/ToadKid3/HitArea"]
 position = Vector2( 0, -1.5 )
-shape = SubResource( 7 )
+shape = SubResource( 12 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Kids/ToadKid3" groups=[
 "mg_anim",
 ]]
 autoplay = "d"
-anims/d = SubResource( 17 )
-anims/falling = SubResource( 18 )
-anims/landed = SubResource( 19 )
-anims/pop = SubResource( 20 )
+anims/d = SubResource( 21 )
+anims/falling = SubResource( 22 )
+anims/landed = SubResource( 23 )
+anims/pop = SubResource( 24 )
 

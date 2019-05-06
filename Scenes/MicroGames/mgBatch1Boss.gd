@@ -4,7 +4,7 @@ onready var gun = $Toad/Gun
 var move_spd = 90
 var dir = 1
 var rotate_gun = true
-var ammo = 4
+var ammo = 3
 onready var bullet = $Toad/Gun/Bullet 
 onready var bullet_hb = $Toad/Gun/Bullet/HitBox
 onready var shoot_pos = $Toad/Gun/sp
@@ -21,7 +21,7 @@ var kid_count = 0
 func _init():
 	hint_string = "Save the kids!"
 	time = 60
-	
+	difficulty = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,18 +35,21 @@ func _ready():
 		$Medium.queue_free()
 		kid_mover.play("e")
 		move_spd = 85
+		
 		$Easy.visible = true
 	elif difficulty == 1:
 		$Easy.queue_free()
 		$Hard.queue_free()
 		kid_mover.play("m")
 		$Medium.visible = true
-		move_spd = 95
+		move_spd = 85
+		ammo = 3
 	elif difficulty == 2:
 		$Easy.queue_free()
 		$Medium.queue_free()
 		kid_mover.play("h")
-		move_spd = 115
+		move_spd = 85
+		ammo = 3
 		$Hard.visible = true
 	var kids_node = $Kids
 	var kids = kids_node.get_children()
@@ -97,10 +100,10 @@ func _process(delta):
 			toad_anim.play("win")
 			game_over = true
 			AudioManager.stop_music()
-			AudioManager.play_sfx_name("ww-boss-win.wav")
+			AudioManager.play_sfx_name("wwgb-beat-boss.wav")
 			return
 		if rotate_gun:
-			if Input.is_action_just_pressed("ui_accept"):
+			if Input.is_action_just_pressed("a"):
 				rotate_gun = false
 				bullet.global_transform = shoot_pos.global_transform
 				rotate_gun = false

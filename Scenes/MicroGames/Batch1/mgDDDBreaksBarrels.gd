@@ -119,7 +119,7 @@ func _process(delta):
 	if smash_cooldown_timer > 0:
 		smash_cooldown_timer = max(0,smash_cooldown_timer - delta*game_speed)
 	if !game_ended && !game_over:
-		if smash_cooldown_timer == 0&& Input.is_action_just_pressed("ui_accept"):
+		if smash_cooldown_timer == 0&& Input.is_action_just_pressed("a"):
 			ddd_anim.stop()
 			ddd_anim.play("smash")
 			smash_cooldown_timer = smash_cooldown

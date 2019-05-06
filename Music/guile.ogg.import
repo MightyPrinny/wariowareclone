@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/guile.ogg-0e685dc048cd348544d85d428a60937c.oggstr"
+
+[deps]
+
+source_file="res://Music/guile.ogg"
+dest_files=[ "res://.import/guile.ogg-0e685dc048cd348544d85d428a60937c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

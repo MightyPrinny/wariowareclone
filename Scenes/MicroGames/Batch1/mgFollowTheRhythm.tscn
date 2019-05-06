@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scenes/MicroGames/Batch1/mgFollowTheRhythm.gd" type="Script" id=1]
+[ext_resource path="res://GFX/FollowTheRhythm/DancingGuy.png" type="Texture" id=2]
+[ext_resource path="res://GFX/FollowTheRhythm/meter2.png" type="Texture" id=3]
+[ext_resource path="res://GFX/FollowTheRhythm/meter1.png" type="Texture" id=4]
+[ext_resource path="res://GFX/FollowTheRhythm/timing-bar.png" type="Texture" id=5]
+[ext_resource path="res://GFX/FollowTheRhythm/timing-arrow.png" type="Texture" id=6]
+[ext_resource path="res://GFX/FollowTheRhythm/speaker.png" type="Texture" id=7]
+
+
+[sub_resource type="Animation" id=1]
+resource_name = "beat"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("speaker:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1.08252 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("speaker2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -1, 1 ), Vector2( -1, 1.083 ), Vector2( -1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("speaker:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 20, 80 ), Vector2( 20, 75.75 ), Vector2( 20, 80 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("speaker2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 140, 80 ), Vector2( 140, 75.75 ), Vector2( 140, 80 ) ]
+}
+
+[node name="mgFollowTheRhythm" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+
+[node name="DancingGuy" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+hframes = 4
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Progress" type="TextureProgress" parent="."]
+margin_left = 45.0
+margin_top = 120.0
+margin_right = 116.0
+margin_bottom = 160.0
+value = 81.0
+texture_over = ExtResource( 3 )
+texture_progress = ExtResource( 4 )
+
+[node name="TimingBar" type="Sprite" parent="."]
+position = Vector2( 6.5, 1.5 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Arrow" type="Sprite" parent="TimingBar"]
+position = Vector2( 73.5, 16 )
+texture = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="TimingBar"]
+margin_left = 38.0
+margin_top = 9.0
+margin_right = 109.0
+margin_bottom = 11.0
+
+[node name="speaker" type="Sprite" parent="."]
+position = Vector2( 20, 80 )
+texture = ExtResource( 7 )
+
+[node name="speaker2" type="Sprite" parent="."]
+position = Vector2( 140, 80 )
+scale = Vector2( -1, 1 )
+texture = ExtResource( 7 )
+
+[node name="BeatAnim" type="AnimationPlayer" parent="."]
+anims/beat = SubResource( 1 )

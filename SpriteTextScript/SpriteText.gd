@@ -105,8 +105,8 @@ func set_font_texture(v):
 func setup():
 	var font_w:int = font_texture.get_width();
 	var font_h:int = font_texture.get_height();
-	wchars = font_w/char_width;
-	hchars = font_h/char_height;
+	wchars = int(font_w/char_width);
+	hchars = int(font_h/char_height);
 	if Engine.editor_hint || !initialized:
 		initialized = true;
 		colors.resize(13);

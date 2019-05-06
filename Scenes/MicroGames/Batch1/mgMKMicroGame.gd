@@ -52,7 +52,7 @@ func _process(delta):
 			master_player.play("f1")
 			game_cleared();
 			won = true;
-	elif (Input.is_action_just_pressed("ui_accept")||Input.is_action_just_pressed("ui_cancel")||Input.is_action_just_pressed("ui_down")||Input.is_action_just_pressed("ui_left") ||Input.is_action_just_pressed("ui_up")||Input.is_action_just_pressed("ui_right")  )&& input_timer > 0:
+	elif (Input.is_action_just_pressed("a")||Input.is_action_just_pressed("b")||Input.is_action_just_pressed("ui_down")||Input.is_action_just_pressed("ui_left") ||Input.is_action_just_pressed("ui_up")||Input.is_action_just_pressed("ui_right")  )&& input_timer > 0:
 		input_timer = 0;
 		presses = 0;
 		for spr in inputs_sprites:
@@ -83,7 +83,7 @@ func victory_music():
 func generate_inputs():
 	#TO DO: Check difficulty
 	inputs = [];
-	var actions = ["ui_left","ui_right","ui_down","ui_up","ui_accept","ui_cancel"];
+	var actions = ["ui_left","ui_right","ui_down","ui_up","a","b"];
 	var length = 3 + difficulty;
 	
 	for i in range(length):
@@ -106,9 +106,9 @@ func generate_inputs():
 				spr.frame = 6
 			"ui_right":
 				spr.frame = 7
-			"ui_accept":
+			"a":
 				spr.frame = 0
-			"ui_cancel":
+			"b":
 				spr.frame = 1
 			
 	pass

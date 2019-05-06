@@ -22,7 +22,7 @@ tracks/0/keys = {
 }
 
 [node name="Batch1" index="0" instance=ExtResource( 1 )]
-possible_microgames = PoolStringArray( "MKMicroGame", "DDDBreaksBarrels", "FindTheVampire" )
+possible_microgames = PoolStringArray( "MKMicroGame", "DDDBreaksBarrels", "FindTheVampire", "FollowTheRhythm", "WhiteDudeJumping", "BreakTheTargets", "WhiteDudeClimbing", "LickingGuy", "SumoFight" )
 has_boss = true
 boss = ExtResource( 2 )
 
@@ -32,9 +32,16 @@ visible = true
 [node name="Fire" parent="HUD/Timer" index="2"]
 frame = 1
 
+[node name="AnimationPlayer" parent="HUD/Timer" index="4"]
+playback_process_mode = 1
+
 [node name="Hud2" parent="HUD" index="2"]
 frame = 8
 
+[node name="AnimationPlayer" parent="HUD" index="5"]
+playback_process_mode = 1
+
 [node name="MasterPlayer" parent="." index="2"]
+playback_process_mode = 1
 anims/end = SubResource( 1 )
 

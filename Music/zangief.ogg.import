@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/zangief.ogg-ba4a28acb8efd7e9bc0b3943f0a61d4c.oggstr"
+
+[deps]
+
+source_file="res://Music/zangief.ogg"
+dest_files=[ "res://.import/zangief.ogg-ba4a28acb8efd7e9bc0b3943f0a61d4c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

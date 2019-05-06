@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wwgb-get-ready.wav-b7cfbf361e64071387102c093b4cffbc.sample"
+
+[deps]
+
+source_file="res://SFX/wwgb-get-ready.wav"
+dest_files=[ "res://.import/wwgb-get-ready.wav-b7cfbf361e64071387102c093b4cffbc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

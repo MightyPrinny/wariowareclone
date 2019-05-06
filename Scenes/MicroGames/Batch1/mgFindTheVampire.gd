@@ -26,7 +26,6 @@ func _init():
 	time = 15
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#difficulty = 2
 	AudioManager.play_music("castlevania-darkness.ogg")
 	if difficulty == 0:
 		bats.append($Bats/b2)
@@ -103,10 +102,10 @@ func do_swap(allow_extra = true):
 		bat_anims[bat1_id].play("wavev2")
 		bat_anims[bat2_id].play("wavev")
 	
-	if allow_extra && difficulty == 2:
-		do_swap(false)
-	else:
-		swap_tween.start()
+	#if #allow_extra && difficulty == 2:
+		#do_swap(false)
+	#else:
+	swap_tween.start()
 	
 			
 			
@@ -125,7 +124,7 @@ func overdrive_sound():
 func _process(delta):
 	if !game_over && !game_ended && can_select:
 		arrow.global_position = bats[selection].global_position - Vector2(0,16)
-		if Input.is_action_just_pressed("ui_accept"):
+		if Input.is_action_just_pressed("a"):
 			if bats[selection].is_in_group("vampire"):
 				game_cleared()
 				$Bats/BatAnim.play("d")

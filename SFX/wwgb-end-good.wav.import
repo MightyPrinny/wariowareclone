@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wwgb-end-good.wav-38ed2e6399cbf3953f34515f29b144e6.sample"
+
+[deps]
+
+source_file="res://SFX/wwgb-end-good.wav"
+dest_files=[ "res://.import/wwgb-end-good.wav-38ed2e6399cbf3953f34515f29b144e6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

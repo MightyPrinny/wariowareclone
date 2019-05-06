@@ -975,6 +975,7 @@ texture_rows = 10
 "scaled_anim",
 ]]
 autoplay = "d"
+playback_process_mode = 0
 anims/Bomb = SubResource( 1 )
 anims/boom = SubResource( 2 )
 anims/d = SubResource( 3 )
@@ -1064,6 +1065,7 @@ texture_rows = 1
 "scaled_anim",
 ]]
 autoplay = "d"
+playback_process_mode = 0
 anims/Lose = SubResource( 4 )
 anims/d = SubResource( 5 )
 anims/in = SubResource( 6 )
@@ -1110,6 +1112,7 @@ anims/In = SubResource( 9 )
 "scaled_anim",
 ]]
 autoplay = "Begin"
+playback_process_mode = 0
 anims/Begin = SubResource( 10 )
 "anims/Begin game" = SubResource( 11 )
 anims/boss = SubResource( 12 )
@@ -1118,4 +1121,3 @@ anims/levelup = SubResource( 14 )
 "anims/lose game" = SubResource( 15 )
 anims/speedup = SubResource( 16 )
 "anims/win game" = SubResource( 17 )
-

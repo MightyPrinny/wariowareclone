@@ -1,0 +1,215 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/MicroGames/Batch1/mgLickingGuy.gd" type="Script" id=1]
+[ext_resource path="res://GFX/LickingGuy/bg.png" type="Texture" id=2]
+[ext_resource path="res://GFX/LickingGuy/licking-guy.png" type="Texture" id=3]
+[ext_resource path="res://GFX/LickingGuy/table.png" type="Texture" id=4]
+[ext_resource path="res://GFX/LickingGuy/tongue.png" type="Texture" id=5]
+[ext_resource path="res://GFX/LickingGuy/food-7.png" type="Texture" id=6]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Sprite
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+var spd = 90
+var game_speed = 1
+onready var w = get_rect().size.x*0.5
+var can_move = true
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var p = get_parent().get_parent()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	position.x -= delta*game_speed*spd
+	if position.x < -w:
+		queue_free()
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 24, 16 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Lick"
+length = 0.45
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("LickingGuy:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("tongue:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("tongue:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 3, 2, 1, 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("LickPoint:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.25, 0.3, 0.35, 0.4 ),
+"transitions": PoolRealArray( 0, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 80, 56.5 ), Vector2( 80, 99 ), Vector2( 80, 91 ), Vector2( 80, 83 ), Vector2( 80, 75 ), Vector2( 80, 67 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "d"
+tracks/0/type = "value"
+tracks/0/path = NodePath("LickPoint:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 80, 50 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LickingGuy:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("tongue:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("tongue:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 5, 10 )
+
+[node name="mgLickingGuy" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+
+[node name="bg" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LickingGuy" type="Sprite" parent="."]
+position = Vector2( 80, 70 )
+texture = ExtResource( 3 )
+hframes = 10
+frame = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="FoodSpawnPoint" type="Position2D" parent="."]
+position = Vector2( 192, 100 )
+
+[node name="Table" type="Node2D" parent="."]
+position = Vector2( -12, 70 )
+
+[node name="table" type="TextureRect" parent="Table"]
+margin_top = 23.0
+margin_right = 2048.0
+margin_bottom = 61.0
+texture = ExtResource( 4 )
+stretch_mode = 2
+
+[node name="tongue" type="Sprite" parent="."]
+position = Vector2( 80, 92 )
+texture = ExtResource( 5 )
+hframes = 5
+
+[node name="Food" type="Node2D" parent="."]
+
+[node name="FoodBase" type="Sprite" parent="Food"]
+position = Vector2( 80, 96 )
+texture = ExtResource( 6 )
+hframes = 7
+frame = 5
+script = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="Food/FoodBase"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Food/FoodBase/Area2D"]
+shape = SubResource( 2 )
+
+[node name="LickAnim" type="AnimationPlayer" parent="." groups=[
+"mg_anim",
+]]
+autoplay = "d"
+anims/Lick = SubResource( 3 )
+anims/d = SubResource( 4 )
+
+[node name="LickPoint" type="Position2D" parent="."]
+position = Vector2( 80, 67 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Area2D" type="Area2D" parent="LickPoint"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LickPoint/Area2D"]
+shape = SubResource( 5 )
+

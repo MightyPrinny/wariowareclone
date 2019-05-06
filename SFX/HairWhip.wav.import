@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/HairWhip.wav-a3bf669c38095b90a05881ad55aeb6e3.sample"
+
+[deps]
+
+source_file="res://SFX/HairWhip.wav"
+dest_files=[ "res://.import/HairWhip.wav-a3bf669c38095b90a05881ad55aeb6e3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

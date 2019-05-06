@@ -4,7 +4,7 @@
 [ext_resource path="res://SpriteTextScript/SpriteText.gd" type="Script" id=2]
 [ext_resource path="res://GFX/wariowarefont.png" type="Texture" id=3]
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=1]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:char_spacing")
@@ -65,6 +65,8 @@ border_color = Color( 0.568627, 0, 0, 0 )
 script = ExtResource( 2 )
 ignore_rect = true
 char_spacing = 1
+centered = false
+space_width = 4
 text = "¬SHigh Scores¬N
 
 1st
@@ -74,10 +76,13 @@ text = "¬SHigh Scores¬N
 3rd"
 character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
 custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+visible_characters = -1
 font_texture = ExtResource( 3 )
 char_width = 16
 char_height = 16
-anim_speed = 0.45
+anim_speed = 0.7
+anim_interval = 0.065
+tab_spaces = 2
 texture_rows = 2
 
 [node name="1st" type="ReferenceRect" parent="2x/HighScores"]
@@ -91,13 +96,17 @@ script = ExtResource( 2 )
 ignore_rect = true
 char_spacing = 1
 centered = true
+space_width = 4
 text = "0"
 character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
 custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+visible_characters = -1
 font_texture = ExtResource( 3 )
 char_width = 16
 char_height = 16
 anim_speed = 0.45
+anim_interval = 0.0
+tab_spaces = 2
 texture_rows = 2
 
 [node name="2nd" type="ReferenceRect" parent="2x/HighScores"]
@@ -111,13 +120,17 @@ script = ExtResource( 2 )
 ignore_rect = true
 char_spacing = 1
 centered = true
+space_width = 4
 text = "0"
 character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
 custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+visible_characters = -1
 font_texture = ExtResource( 3 )
 char_width = 16
 char_height = 16
 anim_speed = 0.45
+anim_interval = 0.0
+tab_spaces = 2
 texture_rows = 2
 
 [node name="3rd" type="ReferenceRect" parent="2x/HighScores"]
@@ -131,13 +144,17 @@ script = ExtResource( 2 )
 ignore_rect = true
 char_spacing = 1
 centered = true
+space_width = 4
 text = "0"
 character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
 custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+visible_characters = -1
 font_texture = ExtResource( 3 )
 char_width = 16
 char_height = 16
 anim_speed = 0.45
+anim_interval = 0.0
+tab_spaces = 2
 texture_rows = 2
 
 [node name="RetryExit" type="ReferenceRect" parent="2x"]
@@ -150,17 +167,21 @@ border_color = Color( 0.568627, 0, 0, 0 )
 script = ExtResource( 2 )
 ignore_rect = true
 char_spacing = 1
+centered = false
+space_width = 4
 text = "|Retry @Exit"
 character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
 custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
+visible_characters = -1
 font_texture = ExtResource( 3 )
 char_width = 16
 char_height = 16
 anim_speed = 600.0
+anim_interval = 0.0
+tab_spaces = 2
 texture_rows = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="2x/RetryExit" groups=[
 "scaled_anim",
 ]]
-anims/In = SubResource( 10 )
-
+anims/In = SubResource( 1 )

@@ -1,10 +1,11 @@
 [gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://Scenes/MicroGames/mgDDDBreaksBarrels.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/MicroGames/Batch1/mgDDDBreaksBarrels.gd" type="Script" id=1]
 [ext_resource path="res://GFX/DDDBreaksBarrels/DDDBG.png" type="Texture" id=2]
 [ext_resource path="res://GFX/DDDBreaksBarrels/DDDWithHamer.png" type="Texture" id=3]
 [ext_resource path="res://GFX/DDDBreaksBarrels/Barrel.png" type="Texture" id=4]
 [ext_resource path="res://GFX/DDDBreaksBarrels/DDDFood.png" type="Texture" id=5]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

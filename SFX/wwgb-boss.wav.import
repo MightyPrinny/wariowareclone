@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wwgb-boss.wav-d54a16f5172f1d2baf9def85d3811604.sample"
+
+[deps]
+
+source_file="res://SFX/wwgb-boss.wav"
+dest_files=[ "res://.import/wwgb-boss.wav-d54a16f5172f1d2baf9def85d3811604.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

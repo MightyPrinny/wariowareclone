@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/shantae-jump.wav-7142539848f02085537ff0796ebe105c.sample"
+
+[deps]
+
+source_file="res://SFX/shantae-jump.wav"
+dest_files=[ "res://.import/shantae-jump.wav-7142539848f02085537ff0796ebe105c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=false
+compress/mode=0

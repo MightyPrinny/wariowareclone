@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/btcytag.ogg-806aeae3714be86d052ebde5caa3577c.oggstr"
+
+[deps]
+
+source_file="res://Music/btcytag.ogg"
+dest_files=[ "res://.import/btcytag.ogg-806aeae3714be86d052ebde5caa3577c.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

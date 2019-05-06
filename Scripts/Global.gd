@@ -23,26 +23,41 @@ var game_player = null;
 
 var game_data = {};
 
+var init = true
+
 var last_batch_button = ""
 
 func _init():
 	screen_height = ProjectSettings.get_setting("display/window/size/height");
 	screen_width = ProjectSettings.get_setting("display/window/size/width");
 	randomize()
-	var dir = Directory.new();
-	dir.open("res://Scenes/MicroGames");
-	dir.list_dir_begin();
-	var name = dir.get_next();
-	while name != "":
-		if name.begins_with("mg") && name.ends_with(".tscn"):
-			var n = name.substr(2,name.length()-7);
-			print(n);
-			microgame_ids[n] = microgame_list.size();
-			microgame_list.append(load("res://Scenes/MicroGames/"+name));
-		name = dir.get_next();
+	
+	#preload_microgames()
 	load_game()
 	print(ProjectSettings.globalize_path("user://"))
 	
+func preload_microgames(root = "res://Scenes/MicroGames"):
+	var dir:Directory = Directory.new();
+	dir.open(root);
+	dir.list_dir_begin(true,true);
+	var name = dir.get_next();
+	while name != "":
+		if dir.current_is_dir():
+			preload_microgames(root+"/"+name)
+		elif name.begins_with("mg") && name.ends_with(".tscn"):
+			var n = name.substr(2,name.length()-7);
+			print(n);
+			microgame_ids[n] = microgame_list.size();
+			var ps = load(root+"/"+name)
+			microgame_list.append(ps);
+			var node = ps.instance()
+			add_child(node)
+			node.free()
+		name = dir.get_next();
+	if root == "res://Scenes/MicroGames":
+		AudioManager.enabled = true
+	pass
+
 func _notification(what):
 	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
 		save_game()
@@ -55,8 +70,12 @@ func new_black_rect():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	preload_microgames()
+	#get_tree().connect("idle_frame",self,"preload_microgames",[],CONNECT_ONESHOT)
+	pause_mode = Node.PAUSE_MODE_PROCESS
 	set_process(true)
 	get_tree().connect("idle_frame",self,"init_global_hud",[],CONNECT_ONESHOT)
+	get_tree().paused = true
 	pass # Replace with function body.
 
 func init_global_hud():
@@ -138,6 +157,9 @@ func load_game():
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if init:
+		
+		get_tree().paused = false
 	if transitioning:
 		if delta > 1:
 			delta = 1;
@@ -155,3 +177,24 @@ func _process(delta):
 				transitioning = false;
 				transition_state = -1;
 
+func retro_collision(k:KinematicBody2D,velocity,infinite_inertia = true)->Array:
+	var xspeed = Vector2(velocity.x,0)
+	var yspeed = Vector2(0,velocity.y)
+	var hnormal = Vector2()
+	var vnormal = Vector2()
+	var collision = k.move_and_collide(xspeed,infinite_inertia)
+	var col = false
+	
+	if collision != null:
+		velocity.x = 0
+		hnormal = collision.normal
+		col = true
+
+	collision = k.move_and_collide(yspeed,infinite_inertia)
+	
+	if collision != null:
+		velocity.y = 0
+		vnormal = collision.normal
+		col = true
+		
+	return [col,velocity,hnormal,vnormal]

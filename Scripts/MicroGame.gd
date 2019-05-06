@@ -1,6 +1,7 @@
+class_name Micro_Game
 extends Node2D
 
-var hint_string = "DO STUFF!";
+var hint_string setget set_hint_string,get_hint_string
 var game_name = "something";
 var time:int =3;
 #The instance of the micro game player playing this micro game
@@ -14,6 +15,12 @@ var win_on_timeout = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+	
+func get_hint_string():
+	return hint_string
+	
+func set_hint_string(s):
+	hint_string = s
 
 func game_loss():
 	if game_player != null:

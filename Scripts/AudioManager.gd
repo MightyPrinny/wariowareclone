@@ -13,7 +13,7 @@ var ids = Dictionary()
 var last_id = 0
 var cache = []
 var stopping = false
-
+var enabled = false
 var music_player:AudioStreamPlayer = AudioStreamPlayer.new();
 
 # Called when the node enters the scene tree for the first time.
@@ -57,7 +57,7 @@ func play_sfx_name(name):
 	play_sfx(get_sound_id(name));
 	
 func play_sfx(id,speed = -1,return_if_playing = false):
-	if available.empty():
+	if available.empty() || !enabled:
 		return
 	if speed < 0:
 		if Global.game_player == null:
@@ -69,7 +69,6 @@ func play_sfx(id,speed = -1,return_if_playing = false):
 		return
 	
 	if playing.has(id):
-		print("already playing")
 		var sp = playing[id];
 		if return_if_playing:
 			return;
@@ -88,6 +87,8 @@ func play_sfx(id,speed = -1,return_if_playing = false):
 	playing[id] = sp;
 	
 func play_music(music_name,speed = -1):
+	if !enabled:
+		return
 	if speed < 0:
 		if Global.game_player == null:
 			speed = 1
@@ -119,7 +120,8 @@ func stop_all():
 		return
 	available.clear()
 	for s in sfx_players:
-		s.stop()
+		if s.playing:
+			s.stop()
 		available.push_back(s)
 	playing = Dictionary()
 	#stopping = false

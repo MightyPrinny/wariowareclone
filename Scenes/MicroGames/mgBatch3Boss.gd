@@ -52,7 +52,8 @@ func _ready():
 	shine_cooldown_time = 0.35
 	krool_hb.position.x -= difficulty*2.5
 	krool_max_responses += difficulty*2
-	AudioManager.play_music("Super Smash Land - Dreamland Music.ogg")
+	#AudioManager.play_music("Super Smash Land - Dreamland Music.ogg")
+	AudioManager.play_music("mario-tenis-exhibition-court.ogg")
 	
 func _on_area_exited_screen(a):
 	if game_ended:
@@ -146,7 +147,7 @@ func _process(delta):
 			if shine_cooldown_timer < 0:
 				shine_cooldown_timer = 0
 		if shine_cooldown_timer == 0:
-			if Input.is_action_just_pressed("ui_accept"):
+			if Input.is_action_just_pressed("a"):
 				fox_anim.stop(true)
 				fox_anim.play("shine")
 				shining = true
