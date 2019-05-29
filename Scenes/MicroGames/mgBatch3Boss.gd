@@ -32,7 +32,7 @@ var prev_ball_speed = 0
 var shine_cooldown_timer = 0
 var shine_cooldown_time
 var shining = false
-var krool_max_responses = 12
+var krool_max_responses = 5
 var krool_response_counter = 0
 
 var game_over = false
@@ -40,10 +40,12 @@ var xpl = false
 var using_belly = false
 
 func _init():
-	time = 30
+	time = 15
 	hint_string = "Reflect"
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
 	fox_anim.playback_speed = 1.5*game_speed
 	screen_area.connect("area_exited",self,"_on_area_exited_screen")
 	fox_anim.connect("animation_finished",self,"_on_fox_anim_end")
@@ -100,7 +102,7 @@ func _on_shine_ae(a):
 	if a.is_in_group("ball"):
 		if ball.scale.x == -1:
 			ball.scale.x = 1
-			ball_speed += ball_speedup
+			ball_speed += ball_speedup*game_speed
 
 func _on_krool_belly_ae(a):
 	pass
@@ -136,7 +138,7 @@ func belly_hit():
 func shoot_ball():
 	ball.global_position = krool_shoot_pos.global_position
 	ball.scale.x = -1
-	ball_speed = 2 + difficulty
+	ball_speed = (2 + difficulty)*game_speed
 	AudioManager.play_sfx(sfx_cannon)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

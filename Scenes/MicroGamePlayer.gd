@@ -149,6 +149,7 @@ func set_game_speed(val):
 
 
 func prepare_next():
+	get_viewport().global_canvas_transform = Transform2D()
 	if !boss_time:
 		boss_game_counter += 1;
 	if boss_game_counter >= games_until_boss:

@@ -50,9 +50,10 @@ script = SubResource( 1 )
 
 [node name="G7" type="TextureButton" parent="UI"]
 editor/display_folded = true
-margin_left = 56.0
-margin_right = 80.0
-margin_bottom = 27.0
+margin_left = -42.0
+margin_top = 2.0
+margin_right = -18.0
+margin_bottom = 29.0
 rect_min_size = Vector2( 24, 27 )
 focus_neighbour_left = NodePath("../G6")
 focus_neighbour_top = NodePath(".")
@@ -63,7 +64,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-unlock_check_keys = PoolStringArray( "Batch6" )
+unlock_check_keys = PoolStringArray( "Batch9" )
 
 [node name="spr" type="Sprite" parent="UI/G7"]
 texture = ExtResource( 3 )
@@ -73,16 +74,17 @@ frame = 7
 
 [node name="G6" type="TextureButton" parent="UI"]
 editor/display_folded = true
-margin_left = 28.0
-margin_right = 52.0
-margin_bottom = 27.0
+margin_left = -90.0
+margin_top = -14.0
+margin_right = -66.0
+margin_bottom = 13.0
 rect_min_size = Vector2( 24, 27 )
 mouse_filter = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-unlock_check_keys = PoolStringArray( "Batch5" )
+unlock_check_keys = PoolStringArray( "Batch9" )
 
 [node name="spr" type="Sprite" parent="UI/G6"]
 texture = ExtResource( 3 )
@@ -92,10 +94,10 @@ frame = 6
 
 [node name="G5" type="TextureButton" parent="UI"]
 editor/display_folded = true
-margin_left = 28.0
-margin_top = 31.0
-margin_right = 52.0
-margin_bottom = 58.0
+margin_left = -58.0
+margin_top = -22.0
+margin_right = -34.0
+margin_bottom = 5.0
 rect_min_size = Vector2( 24, 27 )
 focus_neighbour_left = NodePath(".")
 focus_neighbour_right = NodePath(".")
@@ -104,7 +106,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-unlock_check_keys = PoolStringArray( "Batch2", "Batch3", "Batch4" )
+unlock_check_keys = PoolStringArray( "Batch9" )
 
 [node name="spr" type="Sprite" parent="UI/G5"]
 texture = ExtResource( 3 )
@@ -114,10 +116,10 @@ frame = 5
 
 [node name="G4" type="TextureButton" parent="UI"]
 editor/display_folded = true
-margin_left = 56.0
-margin_top = 62.0
-margin_right = 80.0
-margin_bottom = 89.0
+margin_left = -50.0
+margin_top = 42.0
+margin_right = -26.0
+margin_bottom = 69.0
 rect_min_size = Vector2( 24, 27 )
 focus_neighbour_left = NodePath("../G2")
 focus_neighbour_top = NodePath("../G7")
@@ -128,7 +130,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-unlock_check_keys = PoolStringArray( "Batch1" )
+unlock_check_keys = PoolStringArray( "Batch9" )
 
 [node name="spr" type="Sprite" parent="UI/G4"]
 texture = ExtResource( 3 )
@@ -138,9 +140,10 @@ frame = 3
 
 [node name="G3" type="TextureButton" parent="UI"]
 editor/display_folded = true
-margin_top = 62.0
-margin_right = 24.0
-margin_bottom = 89.0
+margin_left = -74.0
+margin_top = 58.0
+margin_right = -50.0
+margin_bottom = 85.0
 rect_min_size = Vector2( 24, 27 )
 focus_neighbour_left = NodePath(".")
 focus_neighbour_top = NodePath(".")
@@ -151,7 +154,7 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-unlock_check_keys = PoolStringArray( "Batch1" )
+unlock_check_keys = PoolStringArray( "Batch9" )
 
 [node name="spr" type="Sprite" parent="UI/G3"]
 texture = ExtResource( 3 )
@@ -161,17 +164,17 @@ frame = 4
 
 [node name="G2" type="TextureButton" parent="UI"]
 editor/display_folded = true
-margin_left = 28.0
-margin_top = 62.0
-margin_right = 52.0
-margin_bottom = 89.0
+margin_left = -74.0
+margin_top = 10.0
+margin_right = -50.0
+margin_bottom = 37.0
 rect_min_size = Vector2( 24, 27 )
 mouse_filter = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-unlock_check_keys = PoolStringArray( "Batch1" )
+unlock_check_keys = PoolStringArray( "Batch9" )
 
 [node name="spr" type="Sprite" parent="UI/G2"]
 texture = ExtResource( 3 )
@@ -181,15 +184,11 @@ frame = 2
 
 [node name="G1" type="TextureButton" parent="UI"]
 editor/display_folded = true
-margin_left = 28.0
-margin_top = 92.0
-margin_right = 52.0
-margin_bottom = 119.0
+margin_left = 30.0
+margin_top = 42.0
+margin_right = 54.0
+margin_bottom = 69.0
 rect_min_size = Vector2( 24, 27 )
-focus_neighbour_left = NodePath(".")
-focus_neighbour_top = NodePath("../G2")
-focus_neighbour_right = NodePath(".")
-focus_neighbour_bottom = NodePath(".")
 mouse_filter = 2
 script = ExtResource( 2 )
 __meta__ = {
@@ -238,7 +237,7 @@ font_texture = ExtResource( 7 )
 char_width = 3
 char_height = 5
 anim_speed = 60.0
-anim_interval = 1
+anim_interval = 0.0
 tab_spaces = 2
 texture_rows = 10
 
@@ -261,7 +260,7 @@ font_texture = ExtResource( 7 )
 char_width = 3
 char_height = 5
 anim_speed = 60.0
-anim_interval = 1
+anim_interval = 0.0
 tab_spaces = 2
 texture_rows = 10
 
@@ -284,7 +283,6 @@ font_texture = ExtResource( 7 )
 char_width = 3
 char_height = 5
 anim_speed = 60.0
-anim_interval = 1
+anim_interval = 0.0
 tab_spaces = 2
 texture_rows = 10
-

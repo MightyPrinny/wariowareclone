@@ -72,22 +72,18 @@ __meta__ = {
 }
 
 [node name="Hint3" type="ReferenceRect" parent="2x/Node2D"]
-margin_left = -285.191
+margin_left = -283.191
 margin_top = 54.0
-margin_right = 450.809
+margin_right = 452.809
 margin_bottom = 102.256
 mouse_filter = 2
 border_color = Color( 0.568627, 0, 0, 1 )
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
 ignore_rect = true
 char_spacing = 1
 centered = true
 space_width = 4
-text = "
-¬SPlus"
+text = "¬SWare"
 character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
 custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
 visible_characters = -1
@@ -100,10 +96,10 @@ tab_spaces = 2
 texture_rows = 2
 
 [node name="Hint" type="ReferenceRect" parent="2x/Node2D"]
-margin_left = -287.754
-margin_top = 26.5278
-margin_right = 448.246
-margin_bottom = 74.7838
+margin_left = -286.754
+margin_top = 32.0278
+margin_right = 449.246
+margin_bottom = 80.2838
 mouse_filter = 2
 border_color = Color( 0.568627, 0, 0, 1 )
 script = ExtResource( 1 )
@@ -111,35 +107,7 @@ ignore_rect = true
 char_spacing = 1
 centered = true
 space_width = 4
-text = "¬SBootleg"
-character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
-custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
-visible_characters = -1
-font_texture = ExtResource( 2 )
-char_width = 16
-char_height = 16
-anim_speed = 0.7
-anim_interval = 0.065
-tab_spaces = 2
-texture_rows = 2
-
-[node name="Hint2" type="ReferenceRect" parent="2x/Node2D"]
-margin_left = -285.191
-margin_top = 30.6705
-margin_right = 450.809
-margin_bottom = 78.9265
-mouse_filter = 2
-border_color = Color( 0.568627, 0, 0, 1 )
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_lock_": true
-}
-ignore_rect = true
-char_spacing = 1
-centered = true
-space_width = 4
-text = "
-¬SMegacollection"
+text = "¬SGameboy"
 character_set = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!|@?.,0123456789"
 custom_char_spaces = PoolIntArray( 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 14, 14, 16, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 14, 14, 8, 8, 8, 8, 8, 8, 8, 8, 4, 8, 8, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 12, 16, 16, 12, 4, 4 )
 visible_characters = -1
@@ -174,4 +142,3 @@ anim_speed = 0.7
 anim_interval = 0.065
 tab_spaces = 2
 texture_rows = 2
-

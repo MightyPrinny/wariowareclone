@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/MicroGames/Batch2/FlappyMario.gd" type="Script" id=1]
+[ext_resource path="res://GFX/MarioSprites/FlappyMarioBG.png" type="Texture" id=2]
+[ext_resource path="res://GFX/MarioSprites/BigPipe.png" type="Texture" id=3]
+[ext_resource path="res://GFX/MarioSprites/cape_mario.png" type="Texture" id=4]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends KinematicBody2D
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+var spd = 1
+export var base = false;
+onready var ar = $Area2D
+onready var sfx_clear = AudioManager.get_sound_id(\"coin.wav\")
+var cleared = false
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if base:
+		set_process(false);
+	ar.connect(\"body_entered\",self,\"_b_enteredd\")
+	
+func _b_enteredd(b):
+	if cleared:
+		return
+	if b.is_in_group(\"player\"):
+		AudioManager.play_sfx(sfx_clear)
+		cleared = true
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _update(delta):
+	position.x -= 60*spd*delta
+	if position.x <= -36:
+		queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 12, 72 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 4, 26 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16, 16 )
+
+[node name="FlappyMario" type="Node2D"]
+scale = Vector2( 2, 2 )
+script = ExtResource( 1 )
+spd = 1.35
+spawn_interval = 85
+
+[node name="FlappyMarioBG" type="Node2D" parent="."]
+
+[node name="BG" type="TextureRect" parent="FlappyMarioBG"]
+margin_right = 66666.0
+margin_bottom = 144.0
+texture = ExtResource( 2 )
+stretch_mode = 2
+
+[node name="PipeCombo" type="KinematicBody2D" parent="." groups=[
+"pipe",
+]]
+position = Vector2( -240, 64 )
+script = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+base = true
+
+[node name="BigPipe" type="Sprite" parent="PipeCombo"]
+position = Vector2( 0, 96 )
+texture = ExtResource( 3 )
+
+[node name="BigPipe2" type="Sprite" parent="PipeCombo"]
+position = Vector2( 0, -96 )
+scale = Vector2( 1, -1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeCombo"]
+position = Vector2( 0, -96 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PipeCombo"]
+position = Vector2( 0, 96 )
+shape = SubResource( 2 )
+
+[node name="Area2D" type="Area2D" parent="PipeCombo"]
+position = Vector2( 5.5, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PipeCombo/Area2D"]
+shape = SubResource( 5 )
+
+[node name="Player" type="KinematicBody2D" parent="." groups=[
+"player",
+]]
+position = Vector2( 42, 58 )
+z_index = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="cape_mario" type="Sprite" parent="Player"]
+texture = ExtResource( 4 )
+hframes = 6
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( -0.5, -3.5 )
+shape = SubResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, 128 )
+scale = Vector2( 12, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 16, 16 )
+shape = SubResource( 4 )

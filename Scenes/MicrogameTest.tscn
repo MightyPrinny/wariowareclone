@@ -20,12 +20,13 @@ tracks/0/keys = {
 } ]
 }
 
-[node name="MGTest" index="0" instance=ExtResource( 1 )]
-possible_microgames = PoolStringArray( "SumoFight" )
+[node name="MGTest" instance=ExtResource( 1 )]
+possible_microgames = PoolStringArray( "Batch3Boss" )
 no_save = true
 games_until_speedup = 1
 always_endless = true
 games_until_boss = 3
+base_game_speed = 1.5
 game_difficulty = 2
 
 [node name="Timer" parent="HUD" index="0"]
@@ -46,4 +47,3 @@ playback_process_mode = 1
 [node name="MasterPlayer" parent="." index="2"]
 playback_process_mode = 1
 anims/end = SubResource( 1 )
-

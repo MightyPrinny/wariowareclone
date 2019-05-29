@@ -390,7 +390,9 @@ __meta__ = {
 
 [node name="Fox" type="Node2D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Fox"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Fox" groups=[
+"mg_anim",
+]]
 root_node = NodePath("../FoxSpr")
 autoplay = "d"
 anims/d = SubResource( 2 )
@@ -398,7 +400,7 @@ anims/die = SubResource( 3 )
 anims/shine = SubResource( 4 )
 
 [node name="FoxSpr" type="Sprite" parent="Fox"]
-position = Vector2( -100, 99 )
+position = Vector2( 30, 99 )
 texture = ExtResource( 3 )
 offset = Vector2( 0, -2 )
 hframes = 5
@@ -427,18 +429,20 @@ shape = SubResource( 5 )
 shape = SubResource( 6 )
 
 [node name="KRool" type="Sprite" parent="."]
-position = Vector2( 250, 90 )
+position = Vector2( 125, 90 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 4 )
 centered = false
 offset = Vector2( -18, -21 )
 hframes = 11
-frame = 10
+frame = 1
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="KRool"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="KRool" groups=[
+"mg_anim",
+]]
 autoplay = "begin"
 anims/begin = SubResource( 7 )
 anims/d = SubResource( 8 )
@@ -511,5 +515,7 @@ offset = Vector2( 33, 0 )
 hframes = 6
 frame = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Blast/spr"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Blast/spr" groups=[
+"mg_anim",
+]]
 anims/b = SubResource( 18 )

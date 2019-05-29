@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/cape_rise.wav-633d8ba7cb9af43f3eedfcb4d676e155.sample"
+
+[deps]
+
+source_file="res://SFX/cape_rise.wav"
+dest_files=[ "res://.import/cape_rise.wav-633d8ba7cb9af43f3eedfcb4d676e155.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
